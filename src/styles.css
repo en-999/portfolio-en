@@ -67,8 +67,8 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 .button.secondary { background: var(--surface); border-color: var(--line); box-shadow: none; color: var(--ink); }
 .button.secondary:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); }
 .hero-photo-wrap { height: 330px; position: absolute; right: 7%; top: 135px; width: 242px; }
-.hero-photo { background: var(--accent-soft); border: 1px solid var(--line); filter: grayscale(.15); height: 100%; object-fit: cover; object-position: center top; width: 100%; }
-.hero-photo-ring { border: 1px solid var(--accent); height: 100%; left: 13px; position: absolute; top: 13px; width: 100%; }
+.hero-photo { background: var(--accent-soft); border: 1px solid var(--line); border-radius: 14px; filter: grayscale(.15); height: 100%; object-fit: cover; object-position: center top; width: 100%; }
+.hero-photo-ring { border: 1px solid var(--accent); border-radius: 14px; height: 100%; left: 13px; position: absolute; top: 13px; width: 100%; }
 .hero-photo-label { background: var(--accent); bottom: -16px; color: #fff; font-family: 'DM Mono', monospace; font-size: .58rem; line-height: 1.5; padding: 8px 10px; position: absolute; right: -25px; text-transform: uppercase; }
 .hero-photo-index { color: var(--accent); position: absolute; right: -35px; top: 8px; transform: rotate(90deg); }
 .marquee { border-bottom: 1px solid var(--line); color: var(--muted); display: flex; font-family: 'DM Mono', monospace; font-size: .65rem; gap: 28px; justify-content: center; letter-spacing: .08em; padding: 15px 20px; text-transform: uppercase; }
