@@ -256,7 +256,6 @@ function App() {
           <div className="hero-photo-ring" aria-hidden="true" />
           <img className="hero-photo" src="/myself.jpeg" alt="Portrait de Marc Enzo Bitibaly" />
           <span className="hero-photo-label">Available<br />for ideas</span>
-          <span className="hero-photo-index">/ 01</span>
         </div>
         <div className="hero-3d-scene" aria-hidden="true">
           <div className="hero-orb">
