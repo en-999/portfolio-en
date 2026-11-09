@@ -28,6 +28,14 @@
 }
 
 * { box-sizing: border-box; }
+main { display: flex; flex-direction: column; }
+header { order: 0; }
+.hero { order: 1; }
+.about-section { order: 2; }
+.projects-section { order: 3; }
+.contact-section { order: 4; }
+.site-footer { order: 5; }
+.project-modal-backdrop, .back-to-top { order: 6; }
 html { scroll-behavior: smooth; }
 body { background: var(--bg); margin: 0; min-width: 320px; }
 a { color: inherit; text-decoration: none; }

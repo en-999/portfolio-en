@@ -273,8 +273,8 @@ function App() {
           <span className="menu-icon" aria-hidden="true">{menuOpen ? '×' : '↘'}</span>
         </button>
         <nav id="main-nav" className={menuOpen ? 'nav-open' : ''}>
-          <a className={activeSection === 'projets' ? 'active' : ''} href="#projets" onClick={closeMenu}>{isEnglish ? 'Projects' : 'Projets'}</a>
           <a className={activeSection === 'a-propos' ? 'active' : ''} href="#a-propos" onClick={closeMenu}>{isEnglish ? 'About' : 'À propos'}</a>
+          <a className={activeSection === 'projets' ? 'active' : ''} href="#projets" onClick={closeMenu}>{isEnglish ? 'Projects' : 'Projets'}</a>
           <a className={activeSection === 'contact' ? 'active' : ''} href="#contact" onClick={closeMenu}>Contact</a>
           <button
             className="theme-toggle"
@@ -337,7 +337,7 @@ function App() {
       </section>
       <section className="projects-section section reveal" id="projets">
         <div className="section-heading">
-          <span className="section-number">01</span>
+          <span className="section-number">02</span>
           <h2>{isEnglish ? 'My projects' : 'Mes projets'}</h2>
           <button className="view-all-projects" type="button" onClick={() => setShowAllProjects(!showAllProjects)}>
             {showAllProjects ? (isEnglish ? 'Show less' : 'Réduire') : (isEnglish ? 'See all' : 'Voir tous')} <span aria-hidden="true">→</span>
@@ -377,7 +377,7 @@ function App() {
 
       <section className="about-section section reveal" id="a-propos">
         <div className="section-heading">
-          <span className="section-number">02</span>
+          <span className="section-number">01</span>
           <h2>About me...</h2>
           <span className="section-line" />
         </div>
