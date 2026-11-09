@@ -74,7 +74,7 @@ function App() {
     <main>
       <header className="site-header">
         <a className="brand" href="#top" onClick={closeMenu} aria-label="Retour en haut">
-          BE<span>.</span>
+          EN-999<span>.</span>
         </a>
         <button
           className="menu-toggle"
