@@ -259,13 +259,10 @@ function App() {
           <span className="hero-photo-index">/ 01</span>
         </div>
         <div className="hero-3d-scene" aria-hidden="true">
-          <div className="hero-cube">
-            <span className="cube-face cube-front">EN</span>
-            <span className="cube-face cube-back">999</span>
-            <span className="cube-face cube-right">AI</span>
-            <span className="cube-face cube-left">UX</span>
-            <span className="cube-face cube-top" />
-            <span className="cube-face cube-bottom" />
+          <div className="hero-orb">
+            <span className="orb-ring orb-ring-one" />
+            <span className="orb-ring orb-ring-two" />
+            <span className="orb-glow" />
           </div>
         </div>
       </section>
