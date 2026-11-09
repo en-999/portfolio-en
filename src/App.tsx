@@ -27,10 +27,6 @@ const projects = [
   },
 ]
 
-function ArrowUpRight() {
-  return <span aria-hidden="true" className="arrow">↗</span>
-}
-
 function GitHubIcon() {
   return (
     <svg className="social-logo" viewBox="0 0 24 24" aria-hidden="true">
@@ -141,7 +137,7 @@ function App() {
             <span className="intro-cursor" aria-hidden="true" />
           </p>
           <div className="hero-actions">
-            <a className="button" href="#projets">Découvrir mes projets <ArrowUpRight /></a>
+            <a className="button" href="#projets">Découvrir mes projets</a>
             <a className="button secondary" href="#contact">Me contacter</a>
           </div>
         </div>
@@ -176,7 +172,7 @@ function App() {
                   <div className="tag-list">
                     {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                   </div>
-                  <a href="#contact" aria-label={`Voir le projet ${project.title}`}><ArrowUpRight /></a>
+                  <a href="#contact" aria-label={`Voir le projet ${project.title}`}>+</a>
                 </div>
               </div>
             </article>
@@ -195,7 +191,7 @@ function App() {
           <div className="about-copy">
             <p>Formé en informatique et entrepreneuriat au Burkina Institute of Technology, je m’intéresse au développement backend, à l’intelligence artificielle et à la création de produits numériques accessibles.</p>
             <p className="stack-note"><strong>Stack :</strong> Java/Spring Boot · Node.js · Python · React · Flutter · MySQL · PostgreSQL</p>
-            <a className="text-link" href="mailto:enzobitibaly@gmail.com">Parlons de votre projet <ArrowUpRight /></a>
+            <a className="text-link" href="mailto:enzobitibaly@gmail.com">Parlons de votre projet</a>
           </div>
         </div>
         <div className="stats">
@@ -211,7 +207,7 @@ function App() {
         <div className="contact-layout">
           <div className="contact-intro">
             <p>Un projet, une question ou simplement envie d’échanger ? Écris-moi directement.</p>
-            <a className="contact-link" href="mailto:enzobitibaly@gmail.com">enzobitibaly@gmail.com <ArrowUpRight /></a>
+            <a className="contact-link" href="mailto:enzobitibaly@gmail.com">enzobitibaly@gmail.com</a>
           </div>
           <form className="contact-form" onSubmit={handleContactSubmit}>
             <label>
