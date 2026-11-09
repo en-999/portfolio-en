@@ -247,6 +247,16 @@ function App() {
             <span className="intro-gradient">{typedIntro}</span>
             <span className="intro-cursor" aria-hidden="true" />
           </p>
+          <div className="hero-social-links">
+            <a className="social-link github-link" href="https://github.com/en-999" target="_blank" rel="noreferrer">
+              <GitHubIcon />
+              <span>GitHub</span>
+            </a>
+            <a className="social-link linkedin-link" href="https://www.linkedin.com/in/marc-enzo-bitibaly-a2bb22270/" target="_blank" rel="noreferrer">
+              <LinkedInIcon />
+              <span>LinkedIn</span>
+            </a>
+          </div>
           <div className="hero-actions">
             <a className="button" href="#projets">Découvrir mes projets</a>
             <a className="button secondary" href="#contact">Me contacter</a>
@@ -353,16 +363,6 @@ function App() {
 
       <footer className="site-footer">
         <span>© 2026 Marc Enzo Bitibaly</span>
-        <div className="social-links">
-          <a className="social-link github-link" href="https://github.com/en-999" target="_blank" rel="noreferrer">
-            <GitHubIcon />
-            <span>GitHub</span>
-          </a>
-          <a className="social-link linkedin-link" href="https://www.linkedin.com/in/marc-enzo-bitibaly-a2bb22270/" target="_blank" rel="noreferrer">
-            <LinkedInIcon />
-            <span>LinkedIn</span>
-          </a>
-        </div>
         <span>Ouagadougou · Burkina Faso</span>
       </footer>
       {showBackToTop && (
