@@ -141,7 +141,7 @@ function App() {
 
       <footer className="site-footer">
         <span>© 2026 Marc Enzo Bitibaly</span>
-        <div><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></div>
+        <div><a href="https://github.com/en-999" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/marc-enzo-bitibaly-a2bb22270/" target="_blank" rel="noreferrer">LinkedIn</a></div>
         <span>Ouagadougou · Burkina Faso</span>
       </footer>
     </main>
