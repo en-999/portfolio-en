@@ -8,6 +8,10 @@ const projects = [
     description: 'Un système de prédiction développé chez Telecel Faso pour mieux estimer les tendances de revenus.',
     tags: ['Python', 'Machine learning', 'Data'],
     role: 'Préparation des données, sélection des variables et évaluation des modèles.',
+    enType: 'Artificial intelligence · Machine learning',
+    enTitle: 'Revenue forecasting',
+    enDescription: 'A forecasting system developed at Telecel Faso to better estimate revenue trends.',
+    enRole: 'Data preparation, feature selection and model evaluation.',
     accent: 'project-sand',
   },
   {
@@ -17,6 +21,10 @@ const projects = [
     description: 'Une application Java/Spring Boot pour suivre les équipements, les interventions et la maintenance.',
     tags: ['Java', 'Spring Boot', 'MySQL'],
     role: 'Développement des fonctionnalités de suivi et de maintenance du parc.',
+    enType: 'Business application · Backend',
+    enTitle: 'IT asset management',
+    enDescription: 'A Java/Spring Boot application for tracking equipment, interventions and maintenance.',
+    enRole: 'Development of asset tracking and maintenance features.',
     accent: 'project-blue',
   },
   {
@@ -26,6 +34,10 @@ const projects = [
     description: 'Conception d’une application de tri intelligent, du parcours utilisateur aux maquettes fonctionnelles.',
     tags: ['UI/UX', 'Flutter', 'Product'],
     role: 'Conception du parcours utilisateur et des maquettes de l’application.',
+    enType: 'Digital product · UI/UX',
+    enTitle: 'Smart waste sorting',
+    enDescription: 'Design of a smart waste-sorting app, from user journeys to functional mockups.',
+    enRole: 'User journey and application mockup design.',
     accent: 'project-orange',
   },
 ]
@@ -59,10 +71,15 @@ function App() {
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('portfolio-theme') === 'dark')
   const intro = "What's Up ? Moi c'est Enzo, passionné de tech et de sécurité... je te laisse découvrir mon portfolio."
   const [typedIntro, setTypedIntro] = useState(intro)
+  const [language, setLanguage] = useState<'fr' | 'en'>(() => localStorage.getItem('portfolio-language') === 'en' ? 'en' : 'fr')
   const [activeSection, setActiveSection] = useState('projets')
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [formStatus, setFormStatus] = useState<'idle' | 'ready'>('idle')
   const [selectedProject, setSelectedProject] = useState<typeof projects[number] | null>(null)
+  const isEnglish = language === 'en'
+  const localizedIntro = isEnglish
+    ? "What's Up? I'm Enzo, passionate about tech and security... discover my portfolio."
+    : intro
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -73,7 +90,9 @@ function App() {
     const email = String(formData.get('email') ?? '')
     const subject = String(formData.get('subject') ?? '')
     const message = String(formData.get('message') ?? '')
-    const body = `Bonjour Enzo,\n\nJe m'appelle ${name}.\nMon adresse email : ${email}\n\n${message}`
+    const body = isEnglish
+      ? `Hello Enzo,\n\nMy name is ${name}.\nMy email address: ${email}\n\n${message}`
+      : `Bonjour Enzo,\n\nJe m'appelle ${name}.\nMon adresse email : ${email}\n\n${message}`
 
     setFormStatus('ready')
     window.location.href = `mailto:enzobitibaly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
@@ -83,6 +102,10 @@ function App() {
     document.documentElement.dataset.theme = darkMode ? 'dark' : 'light'
     localStorage.setItem('portfolio-theme', darkMode ? 'dark' : 'light')
   }, [darkMode])
+
+  useEffect(() => {
+    localStorage.setItem('portfolio-language', language)
+  }, [language])
 
   useEffect(() => {
     const revealElements = document.querySelectorAll<HTMLElement>('.reveal')
@@ -176,12 +199,13 @@ function App() {
   }, [selectedProject])
 
   useEffect(() => {
-    let position = intro.length
+    setTypedIntro(localizedIntro)
+    let position = localizedIntro.length
     let deleting = true
     let timeoutId: number
 
     const animateIntro = () => {
-      if (!deleting && position < intro.length) {
+      if (!deleting && position < localizedIntro.length) {
         position += 1
       } else if (deleting && position > 0) {
         position -= 1
@@ -193,13 +217,13 @@ function App() {
         deleting = false
       }
 
-      setTypedIntro(intro.slice(0, position))
+      setTypedIntro(localizedIntro.slice(0, position))
       timeoutId = window.setTimeout(animateIntro, deleting ? 32 : 48)
     }
 
     timeoutId = window.setTimeout(animateIntro, 2400)
     return () => window.clearTimeout(timeoutId)
-  }, [])
+  }, [localizedIntro])
 
   return (
     <main>
@@ -214,12 +238,12 @@ function App() {
           aria-controls="main-nav"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          <span>{menuOpen ? 'Fermer' : 'Menu'}</span>
+          <span>{menuOpen ? (isEnglish ? 'Close' : 'Fermer') : 'Menu'}</span>
           <span className="menu-icon" aria-hidden="true">{menuOpen ? '×' : '↘'}</span>
         </button>
         <nav id="main-nav" className={menuOpen ? 'nav-open' : ''}>
-          <a className={activeSection === 'projets' ? 'active' : ''} href="#projets" onClick={closeMenu}>Projets</a>
-          <a className={activeSection === 'a-propos' ? 'active' : ''} href="#a-propos" onClick={closeMenu}>À propos</a>
+          <a className={activeSection === 'projets' ? 'active' : ''} href="#projets" onClick={closeMenu}>{isEnglish ? 'Projects' : 'Projets'}</a>
+          <a className={activeSection === 'a-propos' ? 'active' : ''} href="#a-propos" onClick={closeMenu}>{isEnglish ? 'About' : 'À propos'}</a>
           <a className={activeSection === 'contact' ? 'active' : ''} href="#contact" onClick={closeMenu}>Contact</a>
           <a className="cv-link" href="/Bitibaly_Enzo_cv.pdf" download="CV-Marc-Enzo-Bitibaly.pdf">
             <span>CV</span>
@@ -234,13 +258,16 @@ function App() {
             <span aria-hidden="true">{darkMode ? '☼' : '◐'}</span>
             {darkMode ? 'Clair' : 'Sombre'}
           </button>
+          <button className="theme-toggle language-toggle" type="button" onClick={() => setLanguage(isEnglish ? 'fr' : 'en')} aria-label={isEnglish ? 'Passer en français' : 'Switch to English'}>
+            {isEnglish ? 'FR' : 'EN'}
+          </button>
         </nav>
       </header>
 
       <section className="hero" id="top">
         <h1 className="hero-title">
-          Je transforme les idées
-          <em> en solutions utiles.</em>
+          {isEnglish ? 'I turn ideas' : 'Je transforme les idées'}
+          <em>{isEnglish ? ' into useful solutions.' : ' en solutions utiles.'}</em>
         </h1>
         <div className="hero-bottom">
           <p className="hero-copy">
@@ -264,7 +291,7 @@ function App() {
         <div className="hero-photo-wrap">
           <div className="hero-photo-ring" aria-hidden="true" />
           <img className="hero-photo" src="/myself.jpeg" alt="Portrait de Marc Enzo Bitibaly" />
-          <span className="hero-photo-label">Available<br />for ideas</span>
+          <span className="hero-photo-label">{isEnglish ? <>Available<br />for ideas</> : <>Disponible<br />pour vos idées</>}</span>
         </div>
         <div className="hero-3d-scene" aria-hidden="true">
           <div className="hero-orb">
@@ -277,7 +304,7 @@ function App() {
       <section className="projects-section section reveal" id="projets">
         <div className="section-heading">
           <span className="section-number">01</span>
-          <h2>Mes projets</h2>
+          <h2>{isEnglish ? 'My projects' : 'Mes projets'}</h2>
           <span className="section-line" />
         </div>
         <div className="project-list">
@@ -286,19 +313,19 @@ function App() {
               <div className={`project-visual ${project.accent}`}>
                 <span className="project-number">{project.number}</span>
                 <span className="visual-shape" aria-hidden="true" />
-                <span className="visual-word">{project.title}</span>
+                <span className="visual-word">{isEnglish ? project.enTitle : project.title}</span>
               </div>
               <div className="project-info">
                 <div>
-                  <p className="project-type">{project.type}</p>
-                  <h3>{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
+                  <p className="project-type">{isEnglish ? project.enType : project.type}</p>
+                  <h3>{isEnglish ? project.enTitle : project.title}</h3>
+                  <p className="project-description">{isEnglish ? project.enDescription : project.description}</p>
                 </div>
                 <div className="project-footer">
                   <div className="tag-list">
                     {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                   </div>
-                  <button className="project-action" type="button" onClick={() => setSelectedProject(project)} aria-label={`Voir les détails de ${project.title}`}>+</button>
+                  <button className="project-action" type="button" onClick={() => setSelectedProject(project)} aria-label={isEnglish ? `View details of ${project.enTitle}` : `Voir les détails de ${project.title}`}>+</button>
                 </div>
               </div>
             </article>
@@ -313,48 +340,50 @@ function App() {
           <span className="section-line" />
         </div>
         <div className="about-grid">
-          <p className="about-lead">Je construis des outils clairs, utiles et fiables, du modèle de données jusqu’à l’expérience utilisateur.</p>
+          <p className="about-lead">{isEnglish ? 'I build clear, useful and reliable tools, from data models to user experiences.' : 'Je construis des outils clairs, utiles et fiables, du modèle de données jusqu’à l’expérience utilisateur.'}</p>
           <div className="about-copy">
-            <p>Formé en informatique et entrepreneuriat au Burkina Institute of Technology, je m’intéresse au développement backend, à l’intelligence artificielle et à la création de produits numériques accessibles.</p>
+            <p>{isEnglish ? 'Trained in computer science and entrepreneurship at Burkina Institute of Technology, I focus on backend development, artificial intelligence and accessible digital products.' : 'Formé en informatique et entrepreneuriat au Burkina Institute of Technology, je m’intéresse au développement backend, à l’intelligence artificielle et à la création de produits numériques accessibles.'}</p>
             <p className="stack-note"><strong>Stack :</strong> Java/Spring Boot · Node.js · Python · React · Flutter · MySQL · PostgreSQL</p>
-            <a className="text-link" href="mailto:enzobitibaly@gmail.com">Parlons de votre projet</a>
+            <a className="text-link" href="mailto:enzobitibaly@gmail.com">{isEnglish ? 'Let’s talk about your project' : 'Parlons de votre projet'}</a>
           </div>
         </div>
         <div className="stats">
-          <div className="stat"><strong>04</strong><span className="stat-label">expériences</span></div>
-          <div className="stat"><strong>+8</strong><span className="stat-label">projets clés</span></div>
-          <div className="stat"><strong>08</strong><span className="stat-label">technologies</span></div>
+          <div className="stat"><strong>04</strong><span className="stat-label">{isEnglish ? 'experiences' : 'expériences'}</span></div>
+          <div className="stat"><strong>+8</strong><span className="stat-label">{isEnglish ? 'key projects' : 'projets clés'}</span></div>
+          <div className="stat"><strong>08</strong><span className="stat-label">{isEnglish ? 'technologies' : 'technologies'}</span></div>
         </div>
       </section>
 
       <section className="contact-section section reveal" id="contact">
-        <p className="eyebrow">Une idée en tête ?</p>
-        <h2>Faisons quelque chose de <em>juste.</em></h2>
+        <p className="eyebrow">{isEnglish ? 'Have an idea?' : 'Une idée en tête ?'}</p>
+        <h2>{isEnglish ? <>Let’s make something <em>meaningful.</em></> : <>Faisons quelque chose de <em>juste.</em></>}</h2>
         <div className="contact-layout">
           <div className="contact-intro">
-            <p>Un projet, une question ou simplement envie d’échanger ? Écris-moi directement.</p>
+            <p>{isEnglish ? 'A project, a question or simply want to connect? Write to me directly.' : 'Un projet, une question ou simplement envie d’échanger ? Écris-moi directement.'}</p>
             <a className="contact-link" href="mailto:enzobitibaly@gmail.com">enzobitibaly@gmail.com</a>
           </div>
           <form className="contact-form" onSubmit={handleContactSubmit}>
             <label>
-              <span>Votre nom</span>
-              <input name="name" type="text" placeholder="Prénom Nom" required />
+              <span>{isEnglish ? 'Your name' : 'Votre nom'}</span>
+              <input name="name" type="text" placeholder={isEnglish ? 'First Last' : 'Prénom Nom'} required />
             </label>
             <label>
-              <span>Votre email</span>
+              <span>{isEnglish ? 'Your email' : 'Votre email'}</span>
               <input name="email" type="email" placeholder="vous@email.com" required />
             </label>
             <label>
-              <span>Objet du message</span>
-              <input name="subject" type="text" placeholder="Parlons de votre projet" required />
+              <span>{isEnglish ? 'Message subject' : 'Objet du message'}</span>
+              <input name="subject" type="text" placeholder={isEnglish ? 'Let’s talk about your project' : 'Parlons de votre projet'} required />
             </label>
             <label>
-              <span>Votre message</span>
-              <textarea name="message" placeholder="Bonjour Enzo, ..." rows={5} required />
+              <span>{isEnglish ? 'Your message' : 'Votre message'}</span>
+              <textarea name="message" placeholder={isEnglish ? 'Hello Enzo, ...' : 'Bonjour Enzo, ...'} rows={5} required />
             </label>
-            <button className="button form-submit" type="submit">{formStatus === 'ready' ? 'Message préparé' : 'Préparer le message'}</button>
+            <button className="button form-submit" type="submit">{formStatus === 'ready' ? (isEnglish ? 'Message ready' : 'Message préparé') : (isEnglish ? 'Prepare message' : 'Préparer le message')}</button>
             <small className={formStatus === 'ready' ? 'form-confirmation' : ''}>
-              {formStatus === 'ready' ? 'Votre messagerie devrait s’ouvrir avec les informations préremplies.' : 'Votre logiciel de messagerie s’ouvrira avec le message prérempli.'}
+              {formStatus === 'ready'
+                ? (isEnglish ? 'Your email app should open with the details pre-filled.' : 'Votre messagerie devrait s’ouvrir avec les informations préremplies.')
+                : (isEnglish ? 'Your email app will open with the message pre-filled.' : 'Votre logiciel de messagerie s’ouvrira avec le message prérempli.')}
             </small>
           </form>
         </div>
@@ -362,7 +391,7 @@ function App() {
 
       <footer className="site-footer">
         <span>© 2026 Marc Enzo Bitibaly</span>
-        <span>Ouagadougou · Burkina Faso</span>
+        <span>{isEnglish ? 'Ouagadougou · Burkina Faso' : 'Ouagadougou · Burkina Faso'}</span>
       </footer>
       {showBackToTop && (
         <button className="back-to-top" type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Retour en haut">
@@ -373,14 +402,14 @@ function App() {
         <div className="project-modal-backdrop" role="presentation" onClick={() => setSelectedProject(null)}>
           <section className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" onClick={(event) => event.stopPropagation()}>
             <button className="modal-close" type="button" onClick={() => setSelectedProject(null)} aria-label="Fermer les détails">×</button>
-            <p className="project-type">{selectedProject.type}</p>
-            <h2 id="project-modal-title">{selectedProject.title}</h2>
-            <p>{selectedProject.description}</p>
-            <p><strong>Mon rôle :</strong> {selectedProject.role}</p>
+            <p className="project-type">{isEnglish ? selectedProject.enType : selectedProject.type}</p>
+            <h2 id="project-modal-title">{isEnglish ? selectedProject.enTitle : selectedProject.title}</h2>
+            <p>{isEnglish ? selectedProject.enDescription : selectedProject.description}</p>
+            <p><strong>{isEnglish ? 'My role:' : 'Mon rôle :'}</strong> {isEnglish ? selectedProject.enRole : selectedProject.role}</p>
             <div className="tag-list">
               {selectedProject.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
-            <a className="button modal-contact" href="#contact" onClick={() => setSelectedProject(null)}>Parler de ce projet</a>
+            <a className="button modal-contact" href="#contact" onClick={() => setSelectedProject(null)}>{isEnglish ? 'Talk about this project' : 'Parler de ce projet'}</a>
           </section>
         </div>
       )}
