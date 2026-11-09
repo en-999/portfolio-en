@@ -103,7 +103,6 @@ function App() {
       </header>
 
       <section className="hero" id="top">
-        <div className="eyebrow fade-in">EN-999</div>
         <h1 className="hero-title">
           Je transforme les idées
           <em> en solutions utiles.</em>
