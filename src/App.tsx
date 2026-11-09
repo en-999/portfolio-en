@@ -268,7 +268,7 @@ function App() {
       <section className="projects-section section reveal" id="projets">
         <div className="section-heading">
           <span className="section-number">01</span>
-          <h2>Mes projets ~</h2>
+          <h2>Mes projets</h2>
           <span className="section-line" />
         </div>
         <div className="project-list">
@@ -300,7 +300,7 @@ function App() {
       <section className="about-section section reveal" id="a-propos">
         <div className="section-heading">
           <span className="section-number">02</span>
-          <h2>About me ~</h2>
+          <h2>About me</h2>
           <span className="section-line" />
         </div>
         <div className="about-grid">
