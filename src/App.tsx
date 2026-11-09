@@ -50,7 +50,8 @@ function LinkedInIcon() {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('portfolio-theme') === 'dark')
-  const [typedIntro, setTypedIntro] = useState('')
+  const intro = "What's Up ? Moi c'est Enzo, passionné de tech et de sécurité... je te laisse découvrir mon portfolio."
+  const [typedIntro, setTypedIntro] = useState(intro)
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -72,9 +73,8 @@ function App() {
   }, [darkMode])
 
   useEffect(() => {
-    const intro = "What's Up ? Moi c'est Enzo, passionné de tech et de sécurité... je te laisse découvrir mon portfolio."
-    let position = 0
-    let deleting = false
+    let position = intro.length
+    let deleting = true
     let timeoutId: number
 
     const animateIntro = () => {
@@ -94,7 +94,7 @@ function App() {
       timeoutId = window.setTimeout(animateIntro, deleting ? 32 : 48)
     }
 
-    timeoutId = window.setTimeout(animateIntro, 500)
+    timeoutId = window.setTimeout(animateIntro, 2400)
     return () => window.clearTimeout(timeoutId)
   }, [])
 
