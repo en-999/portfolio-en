@@ -59,9 +59,10 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 .hero-title em { color: var(--accent); font-style: normal; }
 .hero-bottom { align-items: end; display: flex; justify-content: space-between; max-width: 890px; }
 .hero-copy { color: var(--muted); font-size: .98rem; line-height: 1.75; margin: 0; max-width: 390px; }
-.intro-gradient { background: linear-gradient(110deg, var(--ink), var(--accent), var(--ink)); background-clip: text; -webkit-background-clip: text; background-size: 180% auto; color: transparent; }
+.intro-gradient { animation: intro-gradient-shift 5s ease-in-out infinite; background: linear-gradient(105deg, var(--ink) 0%, color-mix(in srgb, var(--ink) 72%, var(--accent)) 27%, var(--accent) 50%, color-mix(in srgb, var(--accent) 72%, var(--ink)) 73%, var(--ink) 100%); background-clip: text; -webkit-background-clip: text; background-size: 240% 100%; color: transparent; }
 .intro-cursor { animation: intro-cursor-blink .8s step-end infinite; border-right: 2px solid var(--accent); display: inline-block; height: 1em; margin-left: 3px; transform: translateY(3px); }
 @keyframes intro-cursor-blink { 50% { border-color: transparent; } }
+@keyframes intro-gradient-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 .hero-actions { display: flex; gap: 10px; }
 .button { align-items: center; background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 68%, var(--ink))); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 5px 0 color-mix(in srgb, var(--accent) 65%, var(--ink)); color: #fff; display: inline-flex; font-size: .82rem; font-weight: 700; gap: 16px; padding: 14px 17px; transition: background .2s ease, box-shadow .2s ease, transform .2s ease; }
 .button:hover { background: var(--ink); border-color: var(--ink); box-shadow: 0 5px 0 color-mix(in srgb, var(--ink) 70%, var(--accent)); color: var(--bg); transform: translateY(-3px); }
@@ -199,5 +200,6 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .intro-gradient { animation: none; }
   .intro-cursor { animation: none; }
 }
