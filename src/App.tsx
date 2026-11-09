@@ -91,6 +91,32 @@ function App() {
   }, [])
 
   useEffect(() => {
+    const photo = document.querySelector<HTMLElement>('.hero-photo-wrap')
+    if (!photo || window.matchMedia('(hover: none)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return
+    }
+
+    const handlePointerMove = (event: PointerEvent) => {
+      const x = (event.clientX / window.innerWidth - 0.5) * 10
+      const y = (event.clientY / window.innerHeight - 0.5) * -10
+      photo.style.setProperty('--photo-x', `${x}px`)
+      photo.style.setProperty('--photo-y', `${y}px`)
+    }
+
+    const resetPhoto = () => {
+      photo.style.setProperty('--photo-x', '0px')
+      photo.style.setProperty('--photo-y', '0px')
+    }
+
+    window.addEventListener('pointermove', handlePointerMove)
+    window.addEventListener('pointerleave', resetPhoto)
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove)
+      window.removeEventListener('pointerleave', resetPhoto)
+    }
+  }, [])
+
+  useEffect(() => {
     let position = intro.length
     let deleting = true
     let timeoutId: number
