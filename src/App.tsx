@@ -230,7 +230,7 @@ function App() {
               <span>Votre message</span>
               <textarea name="message" placeholder="Bonjour Enzo, ..." rows={5} required />
             </label>
-            <button className="button form-submit" type="submit">Préparer le message <ArrowUpRight /></button>
+            <button className="button form-submit" type="submit">Préparer le message</button>
             <small>Votre logiciel de messagerie s’ouvrira avec le message prérempli.</small>
           </form>
         </div>
@@ -242,12 +242,10 @@ function App() {
           <a className="social-link github-link" href="https://github.com/en-999" target="_blank" rel="noreferrer">
             <GitHubIcon />
             <span>GitHub</span>
-            <ArrowUpRight />
           </a>
           <a className="social-link linkedin-link" href="https://www.linkedin.com/in/marc-enzo-bitibaly-a2bb22270/" target="_blank" rel="noreferrer">
             <LinkedInIcon />
             <span>LinkedIn</span>
-            <ArrowUpRight />
           </a>
         </div>
         <span>Ouagadougou · Burkina Faso</span>
