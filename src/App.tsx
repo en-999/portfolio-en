@@ -7,6 +7,7 @@ const projects = [
     title: 'Prédiction du chiffre d’affaires',
     description: 'Un système de prédiction développé chez Telecel Faso pour mieux estimer les tendances de revenus.',
     tags: ['Python', 'Machine learning', 'Data'],
+    role: 'Préparation des données, sélection des variables et évaluation des modèles.',
     accent: 'project-sand',
   },
   {
@@ -15,6 +16,7 @@ const projects = [
     title: 'Gestion du parc informatique',
     description: 'Une application Java/Spring Boot pour suivre les équipements, les interventions et la maintenance.',
     tags: ['Java', 'Spring Boot', 'MySQL'],
+    role: 'Développement des fonctionnalités de suivi et de maintenance du parc.',
     accent: 'project-blue',
   },
   {
@@ -23,6 +25,7 @@ const projects = [
     title: 'Tri intelligent des déchets',
     description: 'Conception d’une application de tri intelligent, du parcours utilisateur aux maquettes fonctionnelles.',
     tags: ['UI/UX', 'Flutter', 'Product'],
+    role: 'Conception du parcours utilisateur et des maquettes de l’application.',
     accent: 'project-orange',
   },
 ]
@@ -51,6 +54,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('projets')
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [formStatus, setFormStatus] = useState<'idle' | 'ready'>('idle')
+  const [selectedProject, setSelectedProject] = useState<typeof projects[number] | null>(null)
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -247,7 +251,7 @@ function App() {
                   <div className="tag-list">
                     {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                   </div>
-                  <a className="project-action" href="#contact" aria-label={`Parler du projet ${project.title}`}>+</a>
+                  <button className="project-action" type="button" onClick={() => setSelectedProject(project)} aria-label={`Voir les détails de ${project.title}`}>+</button>
                 </div>
               </div>
             </article>
@@ -327,6 +331,21 @@ function App() {
         <button className="back-to-top" type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Retour en haut">
           ↑
         </button>
+      )}
+      {selectedProject && (
+        <div className="project-modal-backdrop" role="presentation" onClick={() => setSelectedProject(null)}>
+          <section className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" onClick={(event) => event.stopPropagation()}>
+            <button className="modal-close" type="button" onClick={() => setSelectedProject(null)} aria-label="Fermer les détails">×</button>
+            <p className="project-type">{selectedProject.type}</p>
+            <h2 id="project-modal-title">{selectedProject.title}</h2>
+            <p>{selectedProject.description}</p>
+            <p><strong>Mon rôle :</strong> {selectedProject.role}</p>
+            <div className="tag-list">
+              {selectedProject.tags.map((tag) => <span key={tag}>{tag}</span>)}
+            </div>
+            <a className="button modal-contact" href="#contact" onClick={() => setSelectedProject(null)}>Parler de ce projet</a>
+          </section>
+        </div>
       )}
     </main>
   )
