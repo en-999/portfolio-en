@@ -71,6 +71,22 @@ function LinkedInIcon() {
   )
 }
 
+function DiscordIcon() {
+  return (
+    <svg className="social-logo" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M19.5 4.7A16.2 16.2 0 0 0 15.6 3l-.5 1a14.6 14.6 0 0 0-6.2 0l-.5-1a16.2 16.2 0 0 0-3.9 1.7C2 8.5 1.3 12.2 1.7 15.9a15.7 15.7 0 0 0 4.8 2.4l1.2-1.6c-.7-.3-1.3-.6-1.9-1 0-.1.1-.1.2-.2 3.7 1.7 7.7 1.7 11.3 0l.2.2c-.6.4-1.2.7-1.9 1l1.2 1.6a15.7 15.7 0 0 0 4.8-2.4c.5-4.3-.8-8-2.1-11.2ZM8.1 14.8c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm7.8 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z" />
+    </svg>
+  )
+}
+
+function MailIcon() {
+  return (
+    <svg className="social-logo" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="m3 6 9 7 9-7M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+    </svg>
+  )
+}
+
 function DownloadIcon() {
   return (
     <svg className="download-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -290,6 +306,20 @@ function App() {
             <a className="button secondary cv-hero-link" href="/Bitibaly_Enzo_cv.pdf" download="CV-Marc-Enzo-Bitibaly.pdf">
               <span>CV</span>
               <DownloadIcon />
+            </a>
+          </div>
+          <div className="hero-social-links" aria-label="Réseaux et contact">
+            <a href="https://github.com/en-999" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <GitHubIcon />
+            </a>
+            <a href="https://www.linkedin.com/in/marc-enzo-bitibaly-a2bb22270/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <LinkedInIcon />
+            </a>
+            <a href="https://discord.com/channels/@me" target="_blank" rel="noreferrer" aria-label="Discord">
+              <DiscordIcon />
+            </a>
+            <a href="mailto:enzobitibaly@gmail.com" aria-label="Envoyer un email">
+              <MailIcon />
             </a>
           </div>
         </div>
