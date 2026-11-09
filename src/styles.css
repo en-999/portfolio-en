@@ -141,9 +141,12 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .contact-form label span { color: var(--muted); font-family: 'DM Mono', monospace; font-size: .64rem; letter-spacing: .05em; text-transform: uppercase; }
 .contact-form input, .contact-form textarea { background: transparent; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; color: var(--ink); font: inherit; outline: 0; padding: 10px 0; resize: vertical; width: 100%; }
 .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); }
+.contact-form input:valid:not(:placeholder-shown), .contact-form textarea:valid:not(:placeholder-shown) { border-color: color-mix(in srgb, #22a06b 70%, var(--line)); }
+.contact-form input:invalid:not(:placeholder-shown), .contact-form textarea:invalid:not(:placeholder-shown) { border-color: #c65b43; }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted); opacity: .7; }
 .form-submit { border: 0; cursor: pointer; justify-content: center; margin-top: 8px; }
 .contact-form small { color: var(--muted); font-size: .7rem; line-height: 1.5; }
+.contact-form small.form-confirmation { color: #22a06b; }
 .site-footer { align-items: center; border-top: 1px solid var(--line); display: flex; justify-content: space-between; margin: 0 auto; max-width: 1216px; padding: 27px 0; }
 .social-links { display: flex; gap: 10px; }
 .social-link { align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; display: inline-flex; font-family: 'DM Mono', monospace; font-size: .7rem; gap: 9px; padding: 10px 12px; text-transform: uppercase; transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease; }

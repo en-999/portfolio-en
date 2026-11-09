@@ -50,6 +50,7 @@ function App() {
   const [typedIntro, setTypedIntro] = useState(intro)
   const [activeSection, setActiveSection] = useState('projets')
   const [showBackToTop, setShowBackToTop] = useState(false)
+  const [formStatus, setFormStatus] = useState<'idle' | 'ready'>('idle')
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -62,6 +63,7 @@ function App() {
     const message = String(formData.get('message') ?? '')
     const body = `Bonjour Enzo,\n\nJe m'appelle ${name}.\nMon adresse email : ${email}\n\n${message}`
 
+    setFormStatus('ready')
     window.location.href = `mailto:enzobitibaly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
 
@@ -299,8 +301,10 @@ function App() {
               <span>Votre message</span>
               <textarea name="message" placeholder="Bonjour Enzo, ..." rows={5} required />
             </label>
-            <button className="button form-submit" type="submit">Préparer le message</button>
-            <small>Votre logiciel de messagerie s’ouvrira avec le message prérempli.</small>
+            <button className="button form-submit" type="submit">{formStatus === 'ready' ? 'Message préparé' : 'Préparer le message'}</button>
+            <small className={formStatus === 'ready' ? 'form-confirmation' : ''}>
+              {formStatus === 'ready' ? 'Votre messagerie devrait s’ouvrir avec les informations préremplies.' : 'Votre logiciel de messagerie s’ouvrira avec le message prérempli.'}
+            </small>
           </form>
         </div>
       </section>
