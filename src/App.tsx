@@ -196,7 +196,18 @@ function App() {
 
       <footer className="site-footer">
         <span>© 2026 Marc Enzo Bitibaly</span>
-        <div><a href="https://github.com/en-999" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/marc-enzo-bitibaly-a2bb22270/" target="_blank" rel="noreferrer">LinkedIn</a></div>
+        <div className="social-links">
+          <a className="social-link github-link" href="https://github.com/en-999" target="_blank" rel="noreferrer">
+            <span className="social-mark" aria-hidden="true">GH</span>
+            <span>GitHub</span>
+            <ArrowUpRight />
+          </a>
+          <a className="social-link linkedin-link" href="https://www.linkedin.com/in/marc-enzo-bitibaly-a2bb22270/" target="_blank" rel="noreferrer">
+            <span className="social-mark" aria-hidden="true">in</span>
+            <span>LinkedIn</span>
+            <ArrowUpRight />
+          </a>
+        </div>
         <span>Ouagadougou · Burkina Faso</span>
       </footer>
     </main>

@@ -129,7 +129,12 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 .form-submit { border: 0; cursor: pointer; justify-content: center; margin-top: 8px; }
 .contact-form small { color: var(--muted); font-size: .7rem; line-height: 1.5; }
 .site-footer { align-items: center; border-top: 1px solid var(--line); display: flex; justify-content: space-between; margin: 0 auto; max-width: 1216px; padding: 27px 0; }
-.site-footer div { display: flex; gap: 23px; }
+.social-links { display: flex; gap: 10px; }
+.social-link { align-items: center; border: 1px solid var(--ink); display: inline-flex; font-family: 'DM Mono', monospace; font-size: .7rem; gap: 9px; padding: 10px 12px; text-transform: uppercase; transition: background .2s ease, color .2s ease, transform .2s ease; }
+.social-link:hover { background: var(--ink); color: var(--bg); transform: translateY(-3px); }
+.social-mark { align-items: center; background: var(--accent); color: #fff; display: inline-flex; font-family: 'Manrope', sans-serif; font-size: .63rem; font-weight: 800; height: 20px; justify-content: center; letter-spacing: -.08em; width: 20px; }
+.linkedin-link .social-mark { border-radius: 2px; }
+.social-link .arrow { color: var(--accent); font-size: 1rem; }
 
 @media (max-width: 700px) {
   .site-header { padding: 22px 6vw; }
@@ -163,4 +168,5 @@ nav a:hover, .text-link:hover { color: var(--accent); }
   .contact-intro { margin-bottom: 50px; }
   .contact-form { padding: 22px; }
   .site-footer { align-items: start; flex-direction: column; gap: 17px; margin: 0 6vw; }
+  .social-links { flex-wrap: wrap; }
 }
