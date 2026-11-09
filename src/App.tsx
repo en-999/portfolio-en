@@ -46,6 +46,14 @@ function LinkedInIcon() {
   )
 }
 
+function DownloadIcon() {
+  return (
+    <svg className="download-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14" />
+    </svg>
+  )
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('portfolio-theme') === 'dark')
@@ -213,6 +221,10 @@ function App() {
           <a className={activeSection === 'projets' ? 'active' : ''} href="#projets" onClick={closeMenu}>Projets</a>
           <a className={activeSection === 'a-propos' ? 'active' : ''} href="#a-propos" onClick={closeMenu}>À propos</a>
           <a className={activeSection === 'contact' ? 'active' : ''} href="#contact" onClick={closeMenu}>Contact</a>
+          <a className="cv-link" href="/Bitibaly_Enzo_cv.pdf" download="CV-Marc-Enzo-Bitibaly.pdf">
+            <span>CV</span>
+            <DownloadIcon />
+          </a>
           <button
             className="theme-toggle"
             type="button"
@@ -238,7 +250,6 @@ function App() {
           <div className="hero-actions">
             <a className="button" href="#projets">Découvrir mes projets</a>
             <a className="button secondary" href="#contact">Me contacter</a>
-            <a className="button secondary" href="/Bitibaly_Enzo_cv.pdf" download="CV-Marc-Enzo-Bitibaly.pdf">Télécharger mon CV</a>
           </div>
         </div>
         <div className="hero-photo-wrap">

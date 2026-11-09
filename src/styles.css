@@ -52,6 +52,9 @@ nav a { color: var(--muted); transition: color .2s ease; }
 nav a:hover, .text-link:hover { color: var(--accent); }
 nav a.active { color: var(--ink); position: relative; }
 nav a.active::after { background: var(--accent); bottom: -8px; content: ''; height: 2px; left: 0; position: absolute; right: 0; }
+.cv-link { align-items: center; border: 1px solid var(--accent); border-radius: 8px; color: var(--accent) !important; display: inline-flex; gap: 7px; padding: 8px 10px; transition: background .2s ease, color .2s ease, transform .2s ease; }
+.cv-link:hover { background: var(--accent); color: #fff !important; transform: translateY(-2px); }
+.download-icon { height: 15px; width: 15px; }
 .theme-toggle { align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; color: var(--ink); cursor: pointer; display: inline-flex; gap: 8px; padding: 9px 13px; transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease; }
 .theme-toggle:hover { border-color: var(--accent); transform: translateY(-2px); }
 .theme-toggle:focus-visible, .button:focus-visible, .social-link:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 35%, transparent); outline-offset: 3px; }
