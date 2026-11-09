@@ -71,7 +71,6 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 .hero-photo-ring { border: 1px solid var(--accent); border-radius: 14px; height: 100%; left: 13px; position: absolute; top: 13px; width: 100%; }
 .hero-photo-label { background: var(--accent); bottom: -16px; color: #fff; font-family: 'DM Mono', monospace; font-size: .58rem; line-height: 1.5; padding: 8px 10px; position: absolute; right: -25px; text-transform: uppercase; }
 .hero-photo-index { color: var(--accent); position: absolute; right: -35px; top: 8px; transform: rotate(90deg); }
-.marquee { border-bottom: 1px solid var(--line); color: var(--muted); display: flex; font-family: 'DM Mono', monospace; font-size: .65rem; gap: 28px; justify-content: center; letter-spacing: .08em; padding: 15px 20px; text-transform: uppercase; }
 
 .section { margin: 0 auto; max-width: 1280px; padding: 110px 32px; }
 .section-heading { align-items: center; display: flex; gap: 17px; margin-bottom: 48px; }
@@ -174,7 +173,6 @@ nav a:hover, .text-link:hover { color: var(--accent); }
   .hero-title { font-size: clamp(3.6rem, 16vw, 6rem); margin: 55px 0 32px; }
   .hero-photo-wrap { height: 255px; right: 10vw; top: 430px; width: 190px; }
   .hero-photo-label { bottom: -11px; font-size: .52rem; right: -20px; }
-  .marquee { justify-content: start; overflow: hidden; white-space: nowrap; }
   .section { padding: 80px 6vw; }
   .section-heading { margin-bottom: 38px; }
   .section-line { width: 25%; }
