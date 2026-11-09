@@ -88,7 +88,6 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .hero-photo-wrap { height: 330px; position: absolute; right: 7%; top: 135px; transform: translate3d(var(--photo-x, 0px), var(--photo-y, 0px), 0); transition: transform .25s ease-out; width: 242px; }
 .hero-photo { background: var(--accent-soft); border: 1px solid var(--line); border-radius: 14px; filter: grayscale(.15); height: 100%; object-fit: cover; object-position: center top; width: 100%; }
 .hero-photo-ring { border: 1px solid var(--accent); border-radius: 14px; height: 100%; left: 13px; position: absolute; top: 13px; width: 100%; }
-.hero-photo-label { background: var(--accent); bottom: -16px; color: #fff; font-family: 'Space Mono', monospace; font-size: .58rem; line-height: 1.5; padding: 8px 10px; position: absolute; right: -25px; text-transform: uppercase; }
 .hero-photo-index { color: var(--accent); position: absolute; right: -35px; top: 8px; transform: rotate(90deg); }
 .hero-3d-scene { height: 92px; perspective: 500px; position: absolute; right: 42%; top: 105px; width: 92px; }
 .hero-orb { animation: orb-float 6s ease-in-out infinite; height: 82px; left: 5px; position: absolute; top: 5px; width: 82px; }
