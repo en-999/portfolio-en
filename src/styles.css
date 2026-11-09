@@ -57,6 +57,9 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 .eyebrow { color: var(--accent); }
 .hero-title { font-size: clamp(4rem, 8.5vw, 8.8rem); font-weight: 800; letter-spacing: -.11em; line-height: .9; margin: 54px 0 42px; max-width: 950px; }
 .hero-title em { color: var(--accent); font-style: normal; }
+.hero-role { background: linear-gradient(110deg, var(--ink) 8%, var(--accent) 48%, var(--ink) 92%); background-clip: text; -webkit-background-clip: text; background-size: 220% auto; color: transparent; display: inline; }
+.typing-cursor { animation: cursor-blink .85s step-end infinite; border-right: 3px solid var(--accent); display: inline-block; height: .78em; margin-left: .08em; transform: translateY(.08em); }
+@keyframes cursor-blink { 50% { border-color: transparent; } }
 .hero-bottom { align-items: end; display: flex; justify-content: space-between; max-width: 890px; }
 .hero-copy { color: var(--muted); font-size: .98rem; line-height: 1.75; margin: 0; max-width: 390px; }
 .hero-actions { display: flex; gap: 10px; }
@@ -196,4 +199,5 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .typing-cursor { animation: none; }
 }
