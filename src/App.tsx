@@ -72,7 +72,7 @@ function App() {
   }, [darkMode])
 
   useEffect(() => {
-    const intro = 'Développeur logiciel basé à Ouagadougou, je construis des produits numériques avec curiosité, méthode et impact.'
+    const intro = "What's Up ? Moi c'est Enzo, passionné de tech et de sécurité... je te laisse découvrir mon portfolio."
     let position = 0
     let deleting = false
     let timeoutId: number
