@@ -79,6 +79,9 @@ function App() {
           <span className="hero-photo-index">/ 01</span>
         </div>
       </section>
+      <div className="marquee" aria-label="Compétences">
+        <span>BACKEND ✦ MACHINE LEARNING ✦ UI/UX ✦ REACT ✦ JAVA ✦ PYTHON ✦ BACKEND ✦ MACHINE LEARNING ✦ UI/UX ✦ REACT ✦ JAVA ✦ PYTHON ✦</span>
+      </div>
 
       <section className="projects-section section" id="projets">
         <div className="section-heading">
