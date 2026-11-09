@@ -50,6 +50,7 @@ function LinkedInIcon() {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('portfolio-theme') === 'dark')
+  const [typedIntro, setTypedIntro] = useState('')
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -69,6 +70,33 @@ function App() {
     document.documentElement.dataset.theme = darkMode ? 'dark' : 'light'
     localStorage.setItem('portfolio-theme', darkMode ? 'dark' : 'light')
   }, [darkMode])
+
+  useEffect(() => {
+    const intro = 'Développeur logiciel basé à Ouagadougou, je construis des produits numériques avec curiosité, méthode et impact.'
+    let position = 0
+    let deleting = false
+    let timeoutId: number
+
+    const animateIntro = () => {
+      if (!deleting && position < intro.length) {
+        position += 1
+      } else if (deleting && position > 0) {
+        position -= 1
+      } else if (!deleting) {
+        deleting = true
+        timeoutId = window.setTimeout(animateIntro, 2400)
+        return
+      } else {
+        deleting = false
+      }
+
+      setTypedIntro(intro.slice(0, position))
+      timeoutId = window.setTimeout(animateIntro, deleting ? 32 : 48)
+    }
+
+    timeoutId = window.setTimeout(animateIntro, 500)
+    return () => window.clearTimeout(timeoutId)
+  }, [])
 
   return (
     <main>
@@ -108,7 +136,10 @@ function App() {
           <em> en solutions utiles.</em>
         </h1>
         <div className="hero-bottom">
-          <p className="hero-copy">Développeur logiciel basé à Ouagadougou, je construis des produits numériques avec curiosité, méthode et impact.</p>
+          <p className="hero-copy">
+            <span className="intro-gradient">{typedIntro}</span>
+            <span className="intro-cursor" aria-hidden="true" />
+          </p>
           <div className="hero-actions">
             <a className="button" href="#projets">Découvrir mes projets <ArrowUpRight /></a>
             <a className="button secondary" href="#contact">Me contacter</a>
