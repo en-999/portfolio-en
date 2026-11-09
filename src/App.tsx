@@ -167,7 +167,7 @@ function App() {
         <div className="about-grid">
           <p className="about-lead">Je construis des outils clairs, utiles et fiables, du modèle de données jusqu’à l’expérience utilisateur.</p>
           <div className="about-copy">
-            <p>Formé en informatique et entrepreneuriat au Burkina Institute of Technology, où j’ai obtenu une licence avec une note de 17,5/20, je m’intéresse au développement backend, à l’intelligence artificielle et à la création de produits numériques accessibles.</p>
+            <p>Formé en informatique et entrepreneuriat au Burkina Institute of Technology, je m’intéresse au développement backend, à l’intelligence artificielle et à la création de produits numériques accessibles.</p>
             <p className="stack-note"><strong>Stack :</strong> Java/Spring Boot · Node.js · Python · React · Flutter · MySQL · PostgreSQL</p>
             <a className="text-link" href="mailto:enzobitibaly@gmail.com">Parlons de votre projet <ArrowUpRight /></a>
           </div>
