@@ -69,6 +69,28 @@ function App() {
   }, [darkMode])
 
   useEffect(() => {
+    const revealElements = document.querySelectorAll<HTMLElement>('.reveal')
+    document.documentElement.classList.add('reveal-ready')
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      revealElements.forEach((element) => element.classList.add('is-visible'))
+      return
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.12 })
+
+    revealElements.forEach((element) => observer.observe(element))
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
     let position = intro.length
     let deleting = true
     let timeoutId: number
@@ -148,7 +170,7 @@ function App() {
           <span className="hero-photo-index">/ 01</span>
         </div>
       </section>
-      <section className="projects-section section" id="projets">
+      <section className="projects-section section reveal" id="projets">
         <div className="section-heading">
           <span className="section-number">01</span>
           <h2>Projets sélectionnés</h2>
@@ -156,7 +178,7 @@ function App() {
         </div>
         <div className="project-list">
           {projects.map((project) => (
-            <article className="project-card" key={project.number}>
+            <article className="project-card reveal" key={project.number}>
               <div className={`project-visual ${project.accent}`}>
                 <span className="project-number">{project.number}</span>
                 <span className="visual-shape" aria-hidden="true" />
@@ -180,7 +202,7 @@ function App() {
         </div>
       </section>
 
-      <section className="about-section section" id="a-propos">
+      <section className="about-section section reveal" id="a-propos">
         <div className="section-heading">
           <span className="section-number">02</span>
           <h2>À propos</h2>
@@ -201,7 +223,7 @@ function App() {
         </div>
       </section>
 
-      <section className="contact-section section" id="contact">
+      <section className="contact-section section reveal" id="contact">
         <p className="eyebrow">Une idée en tête ?</p>
         <h2>Faisons quelque chose de <em>juste.</em></h2>
         <div className="contact-layout">
