@@ -89,6 +89,7 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 .project-card { background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; min-height: 470px; overflow: hidden; transition: border-color .25s ease, transform .25s ease; }
 .project-card:first-child { grid-column: span 2; }
 .project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+.project-card:focus-within { border-color: var(--accent); box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 12%, transparent); }
 .project-visual { align-items: end; background: linear-gradient(135deg, var(--accent-soft), var(--surface)); display: flex; height: 230px; overflow: hidden; padding: 24px; position: relative; }
 .project-card:nth-child(2) .project-visual { background: linear-gradient(135deg, var(--surface), color-mix(in srgb, var(--accent) 14%, var(--surface))); }
 .project-card:nth-child(3) .project-visual { background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 9%, var(--surface)), var(--surface)); }
@@ -100,6 +101,8 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 .project-orange .visual-shape { border-radius: 0; transform: rotate(45deg); }
 .project-card:hover .visual-shape { transform: rotate(55deg) scale(1.1); }
 .project-info { display: flex; flex: 1; flex-direction: column; justify-content: space-between; padding: 25px; }
+.project-info > div:first-child { transition: transform .3s ease; }
+.project-card:hover .project-info > div:first-child, .project-card:focus-within .project-info > div:first-child { transform: translateX(6px); }
 .project-type { color: var(--muted); margin: 0 0 14px; }
 .project-info h3 { font-size: clamp(1.7rem, 3vw, 3rem); font-weight: 700; letter-spacing: -.09em; line-height: .98; margin: 0; }
 .project-description { color: var(--muted); line-height: 1.65; margin: 17px 0 0; max-width: 430px; }
@@ -107,7 +110,7 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag-list span { border: 1px solid var(--line); color: var(--muted); font-family: 'DM Mono', monospace; font-size: .57rem; padding: 6px 8px; }
 .project-footer a { align-items: center; border: 1px solid var(--accent); border-radius: 50%; color: var(--accent); display: flex; font-size: 1.3rem; height: 42px; justify-content: center; transition: background .2s ease, color .2s ease, transform .2s ease; width: 42px; }
-.project-footer a:hover { background: var(--accent); color: #fff; }
+.project-action:hover, .project-action:focus-visible { background: var(--accent); color: #fff; outline: 0; transform: rotate(90deg) scale(1.08); }
 
 .about-section { background: linear-gradient(120deg, var(--inverse), color-mix(in srgb, var(--inverse) 78%, var(--accent))); color: var(--bg); max-width: none; }
 .about-section .section-heading { margin-left: auto; margin-right: auto; max-width: 1216px; }

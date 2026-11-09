@@ -194,7 +194,7 @@ function App() {
                   <div className="tag-list">
                     {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                   </div>
-                  <a href="#contact" aria-label={`Voir le projet ${project.title}`}>+</a>
+                  <a className="project-action" href="#contact" aria-label={`Parler du projet ${project.title}`}>+</a>
                 </div>
               </div>
             </article>
