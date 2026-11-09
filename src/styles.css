@@ -59,7 +59,7 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 .hero-title em { color: var(--accent); font-style: normal; }
 .hero-bottom { align-items: end; display: flex; justify-content: space-between; max-width: 890px; }
 .hero-copy { color: var(--muted); font-size: .98rem; line-height: 1.75; margin: 0; max-width: 390px; }
-.intro-gradient { animation: intro-gradient-shift 5s ease-in-out infinite; background: linear-gradient(105deg, var(--ink) 0%, color-mix(in srgb, var(--ink) 72%, var(--accent)) 27%, var(--accent) 50%, color-mix(in srgb, var(--accent) 72%, var(--ink)) 73%, var(--ink) 100%); background-clip: text; -webkit-background-clip: text; background-size: 240% 100%; color: transparent; }
+.intro-gradient { animation: intro-gradient-shift 6s ease-in-out infinite; background: linear-gradient(112deg, var(--ink) 0%, var(--ink) 18%, color-mix(in srgb, var(--accent) 45%, var(--ink)) 34%, var(--accent) 49%, color-mix(in srgb, var(--accent) 35%, var(--ink)) 63%, var(--ink) 82%, var(--ink) 100%); background-clip: text; -webkit-background-clip: text; background-size: 300% 100%; color: transparent; filter: drop-shadow(0 0 18px color-mix(in srgb, var(--accent) 12%, transparent)); }
 .intro-cursor { animation: intro-cursor-blink .8s step-end infinite; border-right: 2px solid var(--accent); display: inline-block; height: 1em; margin-left: 3px; transform: translateY(3px); }
 @keyframes intro-cursor-blink { 50% { border-color: transparent; } }
 @keyframes intro-gradient-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
