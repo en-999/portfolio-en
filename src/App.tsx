@@ -48,6 +48,8 @@ function App() {
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('portfolio-theme') === 'dark')
   const intro = "What's Up ? Moi c'est Enzo, passionné de tech et de sécurité... je te laisse découvrir mon portfolio."
   const [typedIntro, setTypedIntro] = useState(intro)
+  const [activeSection, setActiveSection] = useState('projets')
+  const [showBackToTop, setShowBackToTop] = useState(false)
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -117,6 +119,29 @@ function App() {
   }, [])
 
   useEffect(() => {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('#projets, #a-propos, #contact'))
+    const observer = new IntersectionObserver((entries) => {
+      const visibleSection = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0]
+
+      if (visibleSection) {
+        setActiveSection(visibleSection.target.id)
+      }
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: [0, .25, .5] })
+
+    sections.forEach((section) => observer.observe(section))
+    const handleScroll = () => setShowBackToTop(window.scrollY > 500)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  useEffect(() => {
     let position = intro.length
     let deleting = true
     let timeoutId: number
@@ -159,9 +184,9 @@ function App() {
           <span className="menu-icon" aria-hidden="true">{menuOpen ? '×' : '↘'}</span>
         </button>
         <nav id="main-nav" className={menuOpen ? 'nav-open' : ''}>
-          <a href="#projets" onClick={closeMenu}>Projets</a>
-          <a href="#a-propos" onClick={closeMenu}>À propos</a>
-          <a href="#contact" onClick={closeMenu}>Contact</a>
+          <a className={activeSection === 'projets' ? 'active' : ''} href="#projets" onClick={closeMenu}>Projets</a>
+          <a className={activeSection === 'a-propos' ? 'active' : ''} href="#a-propos" onClick={closeMenu}>À propos</a>
+          <a className={activeSection === 'contact' ? 'active' : ''} href="#contact" onClick={closeMenu}>Contact</a>
           <button
             className="theme-toggle"
             type="button"
@@ -294,6 +319,11 @@ function App() {
         </div>
         <span>Ouagadougou · Burkina Faso</span>
       </footer>
+      {showBackToTop && (
+        <button className="back-to-top" type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Retour en haut">
+          ↑
+        </button>
+      )}
     </main>
   )
 }
