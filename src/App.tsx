@@ -372,14 +372,23 @@ function App() {
         {showMoreAbout && (
           <div className="about-more">
             <div>
-              <span className="stat-label">{isEnglish ? 'Focus' : 'Domaines'}</span>
-              <p>{isEnglish ? 'Backend development, artificial intelligence, UI/UX and digital products.' : 'Développement backend, intelligence artificielle, UI/UX et produits numériques.'}</p>
+              <span className="stat-label">{isEnglish ? 'Professional journey' : 'Parcours professionnel'}</span>
+              <p>{isEnglish ? 'Telecel Faso — AI & Machine Learning internship (2026).' : 'Telecel Faso — stage IA & machine learning (2026).'}</p>
+              <p>{isEnglish ? 'LONAB — Java/Spring Boot and information systems internship (2025).' : 'LONAB — stage Java/Spring Boot et systèmes d’information (2025).'}</p>
+              <p>{isEnglish ? 'Ouagadougou City Hall — development and IT maintenance internship (2024).' : 'Mairie centrale de Ouagadougou — stage développement et maintenance informatique (2024).'}</p>
+              <p>{isEnglish ? 'Selection Waste — UI/UX and digital product design internship (2023).' : 'Selection Waste — stage UI/UX et conception de produit numérique (2023).'}</p>
             </div>
             <div>
+              <span className="stat-label">{isEnglish ? 'Education' : 'Formation'}</span>
+              <p>{isEnglish ? 'Bachelor’s degree in Computer Science and Entrepreneurship at Burkina Institute of Technology (2022—2025).' : 'Licence en informatique et entrepreneuriat au Burkina Institute of Technology (2022—2025).'}</p>
+              <p>{isEnglish ? 'Baccalaureate, mathematics and biology — Lycée Saint Justin (2019—2022).' : 'Baccalauréat, spécialités mathématiques et biologie — Lycée Saint Justin (2019—2022).'}</p>
               <span className="stat-label">{isEnglish ? 'Languages' : 'Langues'}</span>
-              <p>{isEnglish ? 'French, Mooré, intermediate English and beginner Spanish.' : 'Français, Mooré, anglais intermédiaire et espagnol débutant.'}</p>
+              <p>{isEnglish ? 'French and Mooré: native. English: intermediate. Spanish: beginner.' : 'Français et Mooré : langues natives. Anglais : intermédiaire. Espagnol : débutant.'}</p>
             </div>
             <div>
+              <span className="stat-label">{isEnglish ? 'Certifications' : 'Certifications'}</span>
+              <p>{isEnglish ? 'From Zero to Hero — building digital products from scratch.' : 'De zéro à héros — développement de produits numériques à partir de zéro.'}</p>
+              <p>{isEnglish ? 'Python Scripting for DevOps — Coursera.' : 'Scripting Python pour DevOps — Coursera.'}</p>
               <span className="stat-label">{isEnglish ? 'Based in' : 'Basé à'}</span>
               <p>Ouagadougou, Burkina Faso</p>
             </div>

@@ -241,6 +241,8 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
   .project-info h3 { font-size: 2.2rem; }
   .about-grid { display: block; }
   .about-lead { font-size: 3rem; margin-bottom: 55px; }
+  .about-more { grid-template-columns: 1fr; margin-top: 55px; }
+  .about-more p { max-width: none; }
   .stats { gap: 30px; margin-top: 58px; }
   .stat strong { font-size: 2.1rem; }
   .contact-section { padding: 100px 6vw; }
