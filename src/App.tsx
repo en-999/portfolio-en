@@ -90,6 +90,7 @@ function App() {
   const [formStatus, setFormStatus] = useState<'idle' | 'ready'>('idle')
   const [selectedProject, setSelectedProject] = useState<typeof projects[number] | null>(null)
   const [showAllProjects, setShowAllProjects] = useState(false)
+  const [showMoreAbout, setShowMoreAbout] = useState(false)
   const isEnglish = language === 'en'
   const localizedIntro = isEnglish
     ? "What's Up? I'm Enzo, passionate about tech and security... discover my portfolio."
@@ -356,7 +357,12 @@ function App() {
           <div className="about-copy">
             <p>{isEnglish ? 'Trained in computer science and entrepreneurship at Burkina Institute of Technology, I focus on backend development, artificial intelligence and accessible digital products.' : 'Formé en informatique et entrepreneuriat au Burkina Institute of Technology, je m’intéresse au développement backend, à l’intelligence artificielle et à la création de produits numériques accessibles.'}</p>
             <p className="stack-note"><strong>Stack :</strong> Java/Spring Boot · Node.js · Python · React · Flutter · MySQL · PostgreSQL</p>
-            <a className="text-link" href="mailto:enzobitibaly@gmail.com">{isEnglish ? 'Let’s talk about your project' : 'Parlons de votre projet'}</a>
+            <div className="about-actions">
+              <a className="text-link" href="mailto:enzobitibaly@gmail.com">{isEnglish ? 'Let’s talk about your project' : 'Parlons de votre projet'}</a>
+              <button className="text-link text-button" type="button" onClick={() => setShowMoreAbout(!showMoreAbout)}>
+                {showMoreAbout ? (isEnglish ? 'Show less' : 'Réduire') : (isEnglish ? 'Learn more' : 'En savoir plus')} <span aria-hidden="true">→</span>
+              </button>
+            </div>
           </div>
         </div>
         <div className="stats">
@@ -364,6 +370,22 @@ function App() {
           <div className="stat"><strong>+8</strong><span className="stat-label">{isEnglish ? 'key projects' : 'projets clés'}</span></div>
           <div className="stat"><strong>08</strong><span className="stat-label">{isEnglish ? 'technologies' : 'technologies'}</span></div>
         </div>
+        {showMoreAbout && (
+          <div className="about-more">
+            <div>
+              <span className="stat-label">{isEnglish ? 'Focus' : 'Domaines'}</span>
+              <p>{isEnglish ? 'Backend development, artificial intelligence, UI/UX and digital products.' : 'Développement backend, intelligence artificielle, UI/UX et produits numériques.'}</p>
+            </div>
+            <div>
+              <span className="stat-label">{isEnglish ? 'Languages' : 'Langues'}</span>
+              <p>{isEnglish ? 'French, Mooré, intermediate English and beginner Spanish.' : 'Français, Mooré, anglais intermédiaire et espagnol débutant.'}</p>
+            </div>
+            <div>
+              <span className="stat-label">{isEnglish ? 'Based in' : 'Basé à'}</span>
+              <p>Ouagadougou, Burkina Faso</p>
+            </div>
+          </div>
+        )}
       </section>
 
       <section className="contact-section section reveal" id="contact">

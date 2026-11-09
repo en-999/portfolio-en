@@ -152,6 +152,12 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .about-copy .stack-note { color: var(--bg); font-family: 'Space Mono', monospace; font-size: .7rem; line-height: 1.7; }
 .about-copy .stack-note strong { color: var(--accent); font-weight: 500; }
 .text-link { border-bottom: 1px solid var(--accent); color: var(--accent); display: inline-flex; font-size: .83rem; gap: 18px; padding-bottom: 8px; }
+.about-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 22px; }
+.text-button { background: transparent; border-left: 0; border-right: 0; border-top: 0; cursor: pointer; font-family: inherit; }
+.text-link span { display: inline-block; transition: transform .2s ease; }
+.text-link:hover span { transform: translateX(4px); }
+.about-more { border-top: 1px solid rgba(255,255,255,.2); display: grid; gap: 30px; grid-template-columns: repeat(3, 1fr); margin: 70px auto 0; max-width: 1216px; padding-top: 24px; }
+.about-more p { color: var(--muted); line-height: 1.65; margin: 12px 0 0; max-width: 250px; }
 .stats { border-top: 1px solid rgba(255,255,255,.2); display: flex; gap: 10vw; margin-top: 70px; padding-top: 24px; }
 .stat strong { color: var(--accent); display: block; font-size: 2.8rem; letter-spacing: -.1em; }
 .stat-label { color: var(--muted); display: block; margin-top: 5px; }
