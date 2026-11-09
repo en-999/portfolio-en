@@ -160,7 +160,22 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .text-link span { display: inline-block; transition: transform .2s ease; }
 .text-link:hover span { transform: translateX(4px); }
 .about-more { border-top: 1px solid rgba(255,255,255,.2); display: grid; gap: 30px; grid-template-columns: repeat(3, 1fr); margin: 70px auto 0; max-width: 1216px; padding-top: 24px; }
-.about-more p { color: var(--muted); line-height: 1.65; margin: 12px 0 0; max-width: 250px; }
+.about-more-title { color: var(--accent); display: block; font-family: 'Space Mono', monospace; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
+.timeline { border-left: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); margin-top: 20px; padding-left: 18px; }
+.timeline article { margin-bottom: 20px; position: relative; }
+.timeline article::before { background: var(--accent); border: 3px solid var(--inverse); border-radius: 50%; content: ''; height: 7px; left: -23px; position: absolute; top: 3px; width: 7px; }
+.timeline article > span { color: var(--accent); font-family: 'Space Mono', monospace; font-size: .65rem; }
+.timeline p, .education-card p, .certification-list p { color: var(--muted); line-height: 1.45; margin: 5px 0 0; }
+.timeline strong, .education-card strong, .certification-list strong { color: var(--bg); display: block; font-weight: 600; }
+.education-card { display: grid; gap: 14px; margin: 20px 0 30px; }
+.education-card p, .certification-list p { border-left: 2px solid var(--accent); padding-left: 12px; }
+.education-card span, .certification-list span { display: block; font-size: .78rem; margin-top: 4px; }
+.language-list { display: grid; gap: 8px; margin: 18px 0 30px; }
+.language-list span { border-bottom: 1px solid rgba(255,255,255,.12); display: flex; justify-content: space-between; padding-bottom: 8px; }
+.language-list b { color: var(--muted); font-size: .75rem; font-weight: 400; }
+.certification-list { display: grid; gap: 14px; margin-top: 20px; }
+.location-title { margin-top: 32px; }
+.location-value { color: var(--bg); margin-top: 8px; }
 .stats { border-top: 1px solid rgba(255,255,255,.2); display: flex; gap: 10vw; margin-top: 70px; padding-top: 24px; }
 .stat strong { color: var(--accent); display: block; font-size: 2.8rem; letter-spacing: -.1em; }
 .stat-label { color: var(--muted); display: block; margin-top: 5px; }

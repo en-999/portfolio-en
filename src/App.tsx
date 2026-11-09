@@ -372,25 +372,36 @@ function App() {
         {showMoreAbout && (
           <div className="about-more">
             <div>
-              <span className="stat-label">{isEnglish ? 'Professional journey' : 'Parcours professionnel'}</span>
-              <p>{isEnglish ? 'Telecel Faso — AI & Machine Learning internship (2026).' : 'Telecel Faso — stage IA & machine learning (2026).'}</p>
-              <p>{isEnglish ? 'LONAB — Java/Spring Boot and information systems internship (2025).' : 'LONAB — stage Java/Spring Boot et systèmes d’information (2025).'}</p>
-              <p>{isEnglish ? 'Ouagadougou City Hall — development and IT maintenance internship (2024).' : 'Mairie centrale de Ouagadougou — stage développement et maintenance informatique (2024).'}</p>
-              <p>{isEnglish ? 'Selection Waste — UI/UX and digital product design internship (2023).' : 'Selection Waste — stage UI/UX et conception de produit numérique (2023).'}</p>
+              <span className="about-more-title">{isEnglish ? 'Professional journey' : 'Parcours professionnel'}</span>
+              <div className="timeline">
+                <article><span>2026</span><p><strong>Telecel Faso</strong>{isEnglish ? 'AI & Machine Learning internship' : 'Stage IA & machine learning'}</p></article>
+                <article><span>2025</span><p><strong>LONAB</strong>{isEnglish ? 'Java/Spring Boot & information systems' : 'Java/Spring Boot & systèmes d’information'}</p></article>
+                <article><span>2024</span><p><strong>{isEnglish ? 'Ouagadougou City Hall' : 'Mairie centrale de Ouagadougou'}</strong>{isEnglish ? 'Development & IT maintenance' : 'Développement & maintenance informatique'}</p></article>
+                <article><span>2023</span><p><strong>Selection Waste</strong>{isEnglish ? 'UI/UX & digital product design' : 'UI/UX & conception de produit numérique'}</p></article>
+              </div>
             </div>
             <div>
-              <span className="stat-label">{isEnglish ? 'Education' : 'Formation'}</span>
-              <p>{isEnglish ? 'Bachelor’s degree in Computer Science and Entrepreneurship at Burkina Institute of Technology (2022—2025).' : 'Licence en informatique et entrepreneuriat au Burkina Institute of Technology (2022—2025).'}</p>
-              <p>{isEnglish ? 'Baccalaureate, mathematics and biology — Lycée Saint Justin (2019—2022).' : 'Baccalauréat, spécialités mathématiques et biologie — Lycée Saint Justin (2019—2022).'}</p>
-              <span className="stat-label">{isEnglish ? 'Languages' : 'Langues'}</span>
-              <p>{isEnglish ? 'French and Mooré: native. English: intermediate. Spanish: beginner.' : 'Français et Mooré : langues natives. Anglais : intermédiaire. Espagnol : débutant.'}</p>
+              <span className="about-more-title">{isEnglish ? 'Education' : 'Formation'}</span>
+              <div className="education-card">
+                <p><strong>{isEnglish ? 'Computer Science & Entrepreneurship' : 'Informatique & entrepreneuriat'}</strong><span>Burkina Institute of Technology · 2022—2025</span></p>
+                <p><strong>{isEnglish ? 'Baccalaureate · Mathematics & Biology' : 'Baccalauréat · Mathématiques & biologie'}</strong><span>Lycée Saint Justin · 2019—2022</span></p>
+              </div>
+              <span className="about-more-title">{isEnglish ? 'Languages' : 'Langues'}</span>
+              <div className="language-list">
+                <span>Français <b>{isEnglish ? 'Native' : 'Natif'}</b></span>
+                <span>Mooré <b>{isEnglish ? 'Native' : 'Natif'}</b></span>
+                <span>English <b>{isEnglish ? 'Intermediate' : 'Intermédiaire'}</b></span>
+                <span>Español <b>{isEnglish ? 'Beginner' : 'Débutant'}</b></span>
+              </div>
             </div>
             <div>
-              <span className="stat-label">{isEnglish ? 'Certifications' : 'Certifications'}</span>
-              <p>{isEnglish ? 'From Zero to Hero — building digital products from scratch.' : 'De zéro à héros — développement de produits numériques à partir de zéro.'}</p>
-              <p>{isEnglish ? 'Python Scripting for DevOps — Coursera.' : 'Scripting Python pour DevOps — Coursera.'}</p>
-              <span className="stat-label">{isEnglish ? 'Based in' : 'Basé à'}</span>
-              <p>Ouagadougou, Burkina Faso</p>
+              <span className="about-more-title">{isEnglish ? 'Certifications' : 'Certifications'}</span>
+              <div className="certification-list">
+                <p><strong>{isEnglish ? 'From Zero to Hero' : 'De zéro à héros'}</strong><span>{isEnglish ? 'Building digital products from scratch' : 'Développement de produits numériques à partir de zéro'}</span></p>
+                <p><strong>Python Scripting for DevOps</strong><span>Coursera</span></p>
+              </div>
+              <span className="about-more-title location-title">{isEnglish ? 'Based in' : 'Basé à'}</span>
+              <p className="location-value">Ouagadougou, Burkina Faso</p>
             </div>
           </div>
         )}
