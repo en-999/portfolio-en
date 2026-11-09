@@ -31,6 +31,22 @@ function ArrowUpRight() {
   return <span aria-hidden="true" className="arrow">↗</span>
 }
 
+function GitHubIcon() {
+  return (
+    <svg className="social-logo" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M12 .7a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.4-5.5-6a4.7 4.7 0 0 1 1.2-3.3c-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.2 5 18.2 5.3 18.2 5.3c.6 1.6.2 2.9.1 3.2a4.7 4.7 0 0 1 1.2 3.3c0 4.6-2.8 5.7-5.5 6 .4.3.8 1 .8 2v3c0 .3.2.7.8.6A12 12 0 0 0 12 .7Z" />
+    </svg>
+  )
+}
+
+function LinkedInIcon() {
+  return (
+    <svg className="social-logo" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M5.2 3.6a2.1 2.1 0 1 1-4.2 0 2.1 2.1 0 0 1 4.2 0ZM1.2 8h4v12.8h-4V8Zm6.5 0h3.8v1.8h.1c.5-1 1.8-2.1 3.8-2.1 4.1 0 4.8 2.7 4.8 6.2v6.9h-4v-6.1c0-1.5 0-3.5-2.1-3.5s-2.4 1.7-2.4 3.4v6.2h-4V8Z" />
+    </svg>
+  )
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('portfolio-theme') === 'dark')
@@ -198,12 +214,12 @@ function App() {
         <span>© 2026 Marc Enzo Bitibaly</span>
         <div className="social-links">
           <a className="social-link github-link" href="https://github.com/en-999" target="_blank" rel="noreferrer">
-            <span className="social-mark" aria-hidden="true">GH</span>
+            <GitHubIcon />
             <span>GitHub</span>
             <ArrowUpRight />
           </a>
           <a className="social-link linkedin-link" href="https://www.linkedin.com/in/marc-enzo-bitibaly-a2bb22270/" target="_blank" rel="noreferrer">
-            <span className="social-mark" aria-hidden="true">in</span>
+            <LinkedInIcon />
             <span>LinkedIn</span>
             <ArrowUpRight />
           </a>

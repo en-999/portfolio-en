@@ -132,8 +132,7 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 .social-links { display: flex; gap: 10px; }
 .social-link { align-items: center; border: 1px solid var(--ink); display: inline-flex; font-family: 'DM Mono', monospace; font-size: .7rem; gap: 9px; padding: 10px 12px; text-transform: uppercase; transition: background .2s ease, color .2s ease, transform .2s ease; }
 .social-link:hover { background: var(--ink); color: var(--bg); transform: translateY(-3px); }
-.social-mark { align-items: center; background: var(--accent); color: #fff; display: inline-flex; font-family: 'Manrope', sans-serif; font-size: .63rem; font-weight: 800; height: 20px; justify-content: center; letter-spacing: -.08em; width: 20px; }
-.linkedin-link .social-mark { border-radius: 2px; }
+.social-logo { color: var(--accent); height: 19px; width: 19px; }
 .social-link .arrow { color: var(--accent); font-size: 1rem; }
 
 @media (max-width: 700px) {
