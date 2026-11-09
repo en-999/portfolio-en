@@ -358,8 +358,7 @@ function App() {
             <p>{isEnglish ? 'Trained in computer science and entrepreneurship at Burkina Institute of Technology, I focus on backend development, artificial intelligence and accessible digital products.' : 'Formé en informatique et entrepreneuriat au Burkina Institute of Technology, je m’intéresse au développement backend, à l’intelligence artificielle et à la création de produits numériques accessibles.'}</p>
             <p className="stack-note"><strong>Stack :</strong> Java/Spring Boot · Node.js · Python · React · Flutter · MySQL · PostgreSQL</p>
             <div className="about-actions">
-              <a className="text-link" href="mailto:enzobitibaly@gmail.com">{isEnglish ? 'Let’s talk about your project' : 'Parlons de votre projet'}</a>
-              <button className="text-link text-button" type="button" onClick={() => setShowMoreAbout(!showMoreAbout)}>
+              <button className="button about-more-toggle" type="button" onClick={() => setShowMoreAbout(!showMoreAbout)}>
                 {showMoreAbout ? (isEnglish ? 'Show less' : 'Réduire') : (isEnglish ? 'Learn more' : 'En savoir plus')} <span aria-hidden="true">→</span>
               </button>
             </div>
