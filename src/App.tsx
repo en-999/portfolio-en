@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 
 const projects = [
   {
@@ -36,6 +36,18 @@ function App() {
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('portfolio-theme') === 'dark')
 
   const closeMenu = () => setMenuOpen(false)
+
+  const handleContactSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const name = String(formData.get('name') ?? '')
+    const email = String(formData.get('email') ?? '')
+    const subject = String(formData.get('subject') ?? '')
+    const message = String(formData.get('message') ?? '')
+    const body = `Bonjour Enzo,\n\nJe m'appelle ${name}.\nMon adresse email : ${email}\n\n${message}`
+
+    window.location.href = `mailto:enzobitibaly@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
 
   useEffect(() => {
     document.documentElement.dataset.theme = darkMode ? 'dark' : 'light'
@@ -154,7 +166,32 @@ function App() {
       <section className="contact-section section" id="contact">
         <p className="eyebrow">Une idée en tête ?</p>
         <h2>Faisons quelque chose de <em>juste.</em></h2>
-        <a className="contact-link" href="mailto:enzobitibaly@gmail.com">enzobitibaly@gmail.com <ArrowUpRight /></a>
+        <div className="contact-layout">
+          <div className="contact-intro">
+            <p>Un projet, une question ou simplement envie d’échanger ? Écris-moi directement.</p>
+            <a className="contact-link" href="mailto:enzobitibaly@gmail.com">enzobitibaly@gmail.com <ArrowUpRight /></a>
+          </div>
+          <form className="contact-form" onSubmit={handleContactSubmit}>
+            <label>
+              <span>Votre nom</span>
+              <input name="name" type="text" placeholder="Prénom Nom" required />
+            </label>
+            <label>
+              <span>Votre email</span>
+              <input name="email" type="email" placeholder="vous@email.com" required />
+            </label>
+            <label>
+              <span>Objet du message</span>
+              <input name="subject" type="text" placeholder="Parlons de votre projet" required />
+            </label>
+            <label>
+              <span>Votre message</span>
+              <textarea name="message" placeholder="Bonjour Enzo, ..." rows={5} required />
+            </label>
+            <button className="button form-submit" type="submit">Préparer le message <ArrowUpRight /></button>
+            <small>Votre logiciel de messagerie s’ouvrira avec le message prérempli.</small>
+          </form>
+        </div>
       </section>
 
       <footer className="site-footer">

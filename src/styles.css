@@ -118,6 +118,16 @@ nav a:hover, .text-link:hover { color: var(--accent); }
 .contact-section h2 em { color: var(--accent); font-style: normal; }
 .contact-link { border-bottom: 2px solid var(--accent); display: inline-flex; font-size: clamp(1.2rem, 2.4vw, 2.2rem); gap: 22px; padding-bottom: 10px; }
 .contact-link .arrow { color: var(--accent); }
+.contact-layout { align-items: start; display: grid; gap: 10vw; grid-template-columns: .8fr 1.2fr; }
+.contact-intro p { color: var(--muted); line-height: 1.7; margin: 0 0 35px; max-width: 280px; }
+.contact-form { background: var(--surface); border: 1px solid var(--line); display: grid; gap: 18px; padding: 28px; }
+.contact-form label { display: grid; gap: 8px; }
+.contact-form label span { color: var(--muted); font-family: 'DM Mono', monospace; font-size: .64rem; letter-spacing: .05em; text-transform: uppercase; }
+.contact-form input, .contact-form textarea { background: transparent; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; color: var(--ink); font: inherit; outline: 0; padding: 10px 0; resize: vertical; width: 100%; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted); opacity: .7; }
+.form-submit { border: 0; cursor: pointer; justify-content: center; margin-top: 8px; }
+.contact-form small { color: var(--muted); font-size: .7rem; line-height: 1.5; }
 .site-footer { align-items: center; border-top: 1px solid var(--line); display: flex; justify-content: space-between; margin: 0 auto; max-width: 1216px; padding: 27px 0; }
 .site-footer div { display: flex; gap: 23px; }
 
@@ -149,5 +159,8 @@ nav a:hover, .text-link:hover { color: var(--accent); }
   .stat strong { font-size: 2.1rem; }
   .contact-section { padding: 100px 6vw; }
   .contact-section h2 { font-size: 4rem; margin: 50px 0 65px; }
+  .contact-layout { display: block; }
+  .contact-intro { margin-bottom: 50px; }
+  .contact-form { padding: 22px; }
   .site-footer { align-items: start; flex-direction: column; gap: 17px; margin: 0 6vw; }
 }
