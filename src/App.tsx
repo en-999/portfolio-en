@@ -245,10 +245,6 @@ function App() {
           <a className={activeSection === 'projets' ? 'active' : ''} href="#projets" onClick={closeMenu}>{isEnglish ? 'Projects' : 'Projets'}</a>
           <a className={activeSection === 'a-propos' ? 'active' : ''} href="#a-propos" onClick={closeMenu}>{isEnglish ? 'About' : 'À propos'}</a>
           <a className={activeSection === 'contact' ? 'active' : ''} href="#contact" onClick={closeMenu}>Contact</a>
-          <a className="cv-link" href="/Bitibaly_Enzo_cv.pdf" download="CV-Marc-Enzo-Bitibaly.pdf">
-            <span>CV</span>
-            <DownloadIcon />
-          </a>
           <button
             className="theme-toggle"
             type="button"
@@ -286,6 +282,10 @@ function App() {
           </div>
           <div className="hero-actions">
             <a className="button secondary" href="#contact">Me contacter</a>
+            <a className="button secondary cv-hero-link" href="/Bitibaly_Enzo_cv.pdf" download="CV-Marc-Enzo-Bitibaly.pdf">
+              <span>CV</span>
+              <DownloadIcon />
+            </a>
           </div>
         </div>
         <div className="hero-photo-wrap">
