@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap');
 
 :root {
   --bg: #f7f8fa;
@@ -93,7 +93,7 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 @keyframes orb-float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-10px) rotate(12deg); } }
 .section { margin: 0 auto; max-width: 1280px; padding: 110px 32px; }
 .section-heading { align-items: center; display: flex; gap: 17px; margin-bottom: 48px; }
-.section-heading h2 { font-size: 1rem; font-weight: 700; margin: 0; }
+.section-heading h2 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin: 0; }
 .section-number { color: var(--accent); }
 .section-line { background: var(--line); height: 1px; margin-left: auto; width: 52%; }
 .project-list { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
@@ -105,7 +105,7 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .project-card:nth-child(2) .project-visual { background: linear-gradient(135deg, var(--surface), color-mix(in srgb, var(--accent) 14%, var(--surface))); }
 .project-card:nth-child(3) .project-visual { background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 9%, var(--surface)), var(--surface)); }
 .project-number { color: var(--accent); font-family: 'DM Mono', monospace; font-size: .68rem; left: 24px; position: absolute; top: 21px; }
-.visual-word { font-size: clamp(2rem, 4vw, 4.3rem); font-weight: 800; letter-spacing: -.11em; line-height: .85; max-width: 74%; position: relative; z-index: 1; }
+.visual-word { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 4.3rem); font-weight: 700; letter-spacing: -.11em; line-height: .85; max-width: 74%; position: relative; z-index: 1; }
 .visual-shape { border: 1px solid var(--accent); border-radius: 50%; height: 200px; position: absolute; right: 8%; top: 13%; transition: transform .4s ease; width: 130px; }
 .project-blue .visual-shape { border-radius: 8px; transform: rotate(24deg); }
 .project-orange .visual-shape { border-radius: 0; transform: rotate(45deg); }
@@ -114,7 +114,7 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .project-info > div:first-child { transition: transform .3s ease; }
 .project-card:hover .project-info > div:first-child, .project-card:focus-within .project-info > div:first-child { transform: translateX(6px); }
 .project-type { color: var(--muted); margin: 0 0 14px; }
-.project-info h3 { font-size: clamp(1.7rem, 3vw, 3rem); font-weight: 700; letter-spacing: -.09em; line-height: .98; margin: 0; }
+.project-info h3 { font-family: 'Syne', sans-serif; font-size: clamp(1.7rem, 3vw, 3rem); font-weight: 700; letter-spacing: -.09em; line-height: .98; margin: 0; }
 .project-description { color: var(--muted); line-height: 1.65; margin: 17px 0 0; max-width: 430px; }
 .project-footer { align-items: end; display: flex; justify-content: space-between; margin-top: 30px; }
 .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -139,7 +139,7 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .about-section .section-line { background: rgba(255,255,255,.2); }
 .about-grid, .stats { margin-left: auto; margin-right: auto; max-width: 1216px; }
 .about-grid { display: grid; gap: 10vw; grid-template-columns: 1fr 1fr; }
-.about-lead { color: var(--accent); font-size: clamp(2.2rem, 4.8vw, 5rem); font-weight: 700; letter-spacing: -.1em; line-height: .98; margin: 0; }
+.about-lead { color: var(--accent); font-family: 'Syne', sans-serif; font-size: clamp(2.2rem, 4.8vw, 5rem); font-weight: 600; letter-spacing: -.1em; line-height: .98; margin: 0; }
 .about-copy { align-self: end; max-width: 440px; }
 .about-copy p { color: var(--muted); line-height: 1.75; margin: 0 0 22px; }
 .about-copy .stack-note { color: var(--bg); font-family: 'DM Mono', monospace; font-size: .7rem; line-height: 1.7; }
@@ -150,7 +150,7 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .stat-label { color: var(--muted); display: block; margin-top: 5px; }
 
 .contact-section { background: linear-gradient(135deg, transparent 0%, color-mix(in srgb, var(--accent-soft) 45%, transparent) 100%); margin: 0 auto; max-width: 1280px; padding: 140px 32px; }
-.contact-section h2 { font-size: clamp(3.7rem, 8vw, 8.5rem); font-weight: 800; letter-spacing: -.12em; line-height: .88; margin: 52px 0 70px; max-width: 1000px; }
+.contact-section h2 { font-family: 'Syne', sans-serif; font-size: clamp(3.7rem, 8vw, 8.5rem); font-weight: 700; letter-spacing: -.12em; line-height: .88; margin: 52px 0 70px; max-width: 1000px; }
 .contact-section h2 em { color: var(--accent); font-style: normal; }
 .contact-link { border-bottom: 2px solid var(--accent); display: inline-flex; font-size: clamp(1.2rem, 2.4vw, 2.2rem); gap: 22px; padding-bottom: 10px; }
 .contact-link .arrow { color: var(--accent); }
