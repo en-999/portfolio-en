@@ -68,7 +68,6 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .hero-title em { color: var(--accent); font-style: normal; }
 .hero-bottom { align-items: end; display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; max-width: 890px; }
 .hero-copy { color: var(--muted); font-size: .98rem; line-height: 1.75; margin: 0; max-width: 390px; }
-.hero-social-links { display: flex; gap: 10px; width: 100%; }
 .intro-gradient { animation: intro-gradient-shift 6s ease-in-out infinite; background: linear-gradient(112deg, var(--ink) 0%, var(--ink) 18%, color-mix(in srgb, var(--accent) 45%, var(--ink)) 34%, var(--accent) 49%, color-mix(in srgb, var(--accent) 35%, var(--ink)) 63%, var(--ink) 82%, var(--ink) 100%); background-clip: text; -webkit-background-clip: text; background-size: 300% 100%; color: transparent; filter: drop-shadow(0 0 18px color-mix(in srgb, var(--accent) 12%, transparent)); }
 .intro-cursor { animation: intro-cursor-blink .8s step-end infinite; border-right: 2px solid var(--accent); display: inline-block; height: 1em; margin-left: 3px; transform: translateY(3px); }
 @keyframes intro-cursor-blink { 50% { border-color: transparent; } }
@@ -158,6 +157,7 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .contact-link .arrow { color: var(--accent); }
 .contact-layout { align-items: start; display: grid; gap: 10vw; grid-template-columns: .8fr 1.2fr; }
 .contact-intro p { color: var(--muted); line-height: 1.7; margin: 0 0 35px; max-width: 280px; }
+.contact-social-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
 .contact-form { background: var(--surface); border: 1px solid var(--line); display: grid; gap: 18px; padding: 28px; }
 .contact-form label { display: grid; gap: 8px; }
 .contact-form label span { color: var(--muted); font-family: 'Space Mono', monospace; font-size: .64rem; letter-spacing: .05em; text-transform: uppercase; }
@@ -194,7 +194,6 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
   .hero-photo-wrap { height: 280px; right: 8%; top: 420px; width: 205px; }
   .hero-3d-scene { right: 8%; top: 95px; transform: scale(.8); }
   .hero-bottom { align-items: start; flex-direction: column; gap: 28px; }
-  .hero-social-links { width: auto; }
   .hero-actions { flex-wrap: wrap; }
   .project-list { grid-template-columns: 1fr; }
   .project-card:first-child { grid-column: auto; }

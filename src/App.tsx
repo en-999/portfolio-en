@@ -270,16 +270,6 @@ function App() {
             <span className="intro-gradient">{typedIntro}</span>
             <span className="intro-cursor" aria-hidden="true" />
           </p>
-          <div className="hero-social-links">
-            <a className="social-link github-link" href="https://github.com/en-999" target="_blank" rel="noreferrer">
-              <GitHubIcon />
-              <span>GitHub</span>
-            </a>
-            <a className="social-link linkedin-link" href="https://www.linkedin.com/in/marc-enzo-bitibaly-a2bb22270/" target="_blank" rel="noreferrer">
-              <LinkedInIcon />
-              <span>LinkedIn</span>
-            </a>
-          </div>
           <div className="hero-actions">
             <a className="button secondary" href="#contact">Me contacter</a>
             <a className="button secondary cv-hero-link" href="/Bitibaly_Enzo_cv.pdf" download="CV-Marc-Enzo-Bitibaly.pdf">
@@ -361,6 +351,16 @@ function App() {
           <div className="contact-intro">
             <p>{isEnglish ? 'A project, a question or simply want to connect? Write to me directly.' : 'Un projet, une question ou simplement envie d’échanger ? Écris-moi directement.'}</p>
             <a className="contact-link" href="mailto:enzobitibaly@gmail.com">enzobitibaly@gmail.com</a>
+            <div className="contact-social-links">
+              <a className="social-link github-link" href="https://github.com/en-999" target="_blank" rel="noreferrer">
+                <GitHubIcon />
+                <span>GitHub</span>
+              </a>
+              <a className="social-link linkedin-link" href="https://www.linkedin.com/in/marc-enzo-bitibaly-a2bb22270/" target="_blank" rel="noreferrer">
+                <LinkedInIcon />
+                <span>LinkedIn</span>
+              </a>
+            </div>
           </div>
           <form className="contact-form" onSubmit={handleContactSubmit}>
             <label>
