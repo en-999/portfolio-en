@@ -50,7 +50,6 @@ function LinkedInIcon() {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('portfolio-theme') === 'dark')
-  const [typedRole, setTypedRole] = useState('')
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -70,31 +69,6 @@ function App() {
     document.documentElement.dataset.theme = darkMode ? 'dark' : 'light'
     localStorage.setItem('portfolio-theme', darkMode ? 'dark' : 'light')
   }, [darkMode])
-
-  useEffect(() => {
-    const role = 'Développeur logiciel'
-    let position = 0
-    let deleting = false
-    let timeoutId: number
-
-    const typeRole = () => {
-      if (!deleting && position < role.length) {
-        position += 1
-      } else if (deleting && position > 0) {
-        position -= 1
-      } else if (!deleting) {
-        deleting = true
-      } else {
-        deleting = false
-      }
-
-      setTypedRole(role.slice(0, position))
-      timeoutId = window.setTimeout(typeRole, deleting ? 75 : 125)
-    }
-
-    timeoutId = window.setTimeout(typeRole, 400)
-    return () => window.clearTimeout(timeoutId)
-  }, [])
 
   return (
     <main>
@@ -130,10 +104,8 @@ function App() {
 
       <section className="hero" id="top">
         <h1 className="hero-title">
-          <span className="hero-role" aria-label="Développeur logiciel">
-            {typedRole}<span className="typing-cursor" aria-hidden="true" />
-          </span>
-          <em> qui transforme les idées.</em>
+          Je transforme les idées
+          <em> en solutions utiles.</em>
         </h1>
         <div className="hero-bottom">
           <p className="hero-copy">Développeur logiciel basé à Ouagadougou, je construis des produits numériques avec curiosité, méthode et impact.</p>
