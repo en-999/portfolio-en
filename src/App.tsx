@@ -148,6 +148,26 @@ function App() {
   }, [])
 
   useEffect(() => {
+    if (!selectedProject) {
+      document.body.style.overflow = ''
+      return
+    }
+
+    document.body.style.overflow = 'hidden'
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedProject(null)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [selectedProject])
+
+  useEffect(() => {
     let position = intro.length
     let deleting = true
     let timeoutId: number
