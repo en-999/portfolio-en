@@ -408,7 +408,7 @@ function App() {
       </section>
 
       <section className="contact-section section reveal" id="contact">
-        <p className="eyebrow">{isEnglish ? 'Have an idea?' : 'Une idée en tête ?'}</p>
+        <p className="eyebrow">Let's connect</p>
         <h2>{isEnglish ? <>Let’s make something <em>meaningful.</em></> : <>Faisons quelque chose de <em>juste.</em></>}</h2>
         <div className="contact-layout">
           <div className="contact-intro">
