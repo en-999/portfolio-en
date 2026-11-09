@@ -238,6 +238,7 @@ function App() {
           <div className="hero-actions">
             <a className="button" href="#projets">Découvrir mes projets</a>
             <a className="button secondary" href="#contact">Me contacter</a>
+            <a className="button secondary" href="/Bitibaly_Enzo_cv.pdf" download="CV-Marc-Enzo-Bitibaly.pdf">Télécharger mon CV</a>
           </div>
         </div>
         <div className="hero-photo-wrap">
