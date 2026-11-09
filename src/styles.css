@@ -95,6 +95,11 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .section { margin: 0 auto; max-width: 1280px; padding: 110px 32px; }
 .section-heading { align-items: center; display: flex; gap: 17px; margin-bottom: 48px; }
 .section-heading h2 { font-size: 1rem; font-weight: 700; margin: 0; }
+.view-all-projects { background: transparent; border: 0; color: var(--accent); cursor: pointer; font-family: 'Space Mono', monospace; font-size: .66rem; letter-spacing: .04em; padding: 5px 0; text-transform: uppercase; }
+.view-all-projects:hover { text-decoration: underline; }
+.view-all-projects:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.view-all-projects span { display: inline-block; font-size: 1rem; margin-left: 5px; transition: transform .2s ease; }
+.view-all-projects:hover span { transform: translateX(4px); }
 .section-number { color: var(--accent); }
 .section-line { background: var(--line); height: 1px; margin-left: auto; width: 52%; }
 .project-list { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
@@ -111,6 +116,7 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .project-blue .visual-shape { border-radius: 8px; transform: rotate(24deg); }
 .project-orange .visual-shape { border-radius: 0; transform: rotate(45deg); }
 .project-card:hover .visual-shape { transform: rotate(55deg) scale(1.1); }
+.all-projects-note { color: var(--muted); font-size: .85rem; margin: 28px 0 0; }
 .project-info { display: flex; flex: 1; flex-direction: column; justify-content: space-between; padding: 25px; }
 .project-info > div:first-child { transition: transform .3s ease; }
 .project-card:hover .project-info > div:first-child, .project-card:focus-within .project-info > div:first-child { transform: translateX(6px); }

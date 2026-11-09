@@ -40,6 +40,19 @@ const projects = [
     enRole: 'User journey and application mockup design.',
     accent: 'project-orange',
   },
+  {
+    number: '04',
+    type: 'Développement web · Maintenance informatique',
+    title: 'Suivi des pannes',
+    description: 'Une application Laravel pour déclarer, suivre et gérer les incidents du parc informatique.',
+    tags: ['Laravel', 'PHP', 'Support'],
+    role: 'Développement de la gestion des incidents et documentation des interventions.',
+    enType: 'Web development · IT maintenance',
+    enTitle: 'Incident tracking',
+    enDescription: 'A Laravel application for reporting, tracking and managing IT equipment incidents.',
+    enRole: 'Development of incident management features and intervention documentation.',
+    accent: 'project-orange',
+  },
 ]
 
 function GitHubIcon() {
@@ -76,6 +89,7 @@ function App() {
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [formStatus, setFormStatus] = useState<'idle' | 'ready'>('idle')
   const [selectedProject, setSelectedProject] = useState<typeof projects[number] | null>(null)
+  const [showAllProjects, setShowAllProjects] = useState(false)
   const isEnglish = language === 'en'
   const localizedIntro = isEnglish
     ? "What's Up? I'm Enzo, passionate about tech and security... discover my portfolio."
@@ -295,10 +309,13 @@ function App() {
         <div className="section-heading">
           <span className="section-number">01</span>
           <h2>{isEnglish ? 'My projects' : 'Mes projets'}</h2>
+          <button className="view-all-projects" type="button" onClick={() => setShowAllProjects(!showAllProjects)}>
+            {showAllProjects ? (isEnglish ? 'Show less' : 'Réduire') : (isEnglish ? 'See all' : 'Voir tous')} <span aria-hidden="true">→</span>
+          </button>
           <span className="section-line" />
         </div>
         <div className="project-list">
-          {projects.map((project) => (
+          {projects.slice(0, showAllProjects ? projects.length : 3).map((project) => (
             <article className="project-card reveal" key={project.number}>
               <div className={`project-visual ${project.accent}`}>
                 <span className="project-number">{project.number}</span>
@@ -321,6 +338,11 @@ function App() {
             </article>
           ))}
         </div>
+        {showAllProjects && (
+          <p className="all-projects-note">
+            {isEnglish ? 'Four projects, one approach: build useful, reliable and accessible digital products.' : 'Quatre projets, une même approche : construire des produits numériques utiles, fiables et accessibles.'}
+          </p>
+        )}
       </section>
 
       <section className="about-section section reveal" id="a-propos">
