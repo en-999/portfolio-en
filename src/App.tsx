@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const projects = [
   {
@@ -33,8 +33,14 @@ function ArrowUpRight() {
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [darkMode, setDarkMode] = useState(() => localStorage.getItem('portfolio-theme') === 'dark')
 
   const closeMenu = () => setMenuOpen(false)
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = darkMode ? 'dark' : 'light'
+    localStorage.setItem('portfolio-theme', darkMode ? 'dark' : 'light')
+  }, [darkMode])
 
   return (
     <main>
@@ -56,6 +62,15 @@ function App() {
           <a href="#projets" onClick={closeMenu}>Projets</a>
           <a href="#a-propos" onClick={closeMenu}>À propos</a>
           <a href="#contact" onClick={closeMenu}>Contact</a>
+          <button
+            className="theme-toggle"
+            type="button"
+            aria-label={darkMode ? 'Activer le thème clair' : 'Activer le thème sombre'}
+            onClick={() => setDarkMode(!darkMode)}
+          >
+            <span aria-hidden="true">{darkMode ? '☼' : '◐'}</span>
+            {darkMode ? 'Clair' : 'Sombre'}
+          </button>
         </nav>
       </header>
 
