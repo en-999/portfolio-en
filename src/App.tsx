@@ -258,7 +258,6 @@ function App() {
             </a>
           </div>
           <div className="hero-actions">
-            <a className="button" href="#projets">Découvrir mes projets</a>
             <a className="button secondary" href="#contact">Me contacter</a>
           </div>
         </div>
