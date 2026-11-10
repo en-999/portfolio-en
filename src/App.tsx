@@ -407,7 +407,7 @@ function App() {
             <div>
               <span className="about-more-title">{isEnglish ? 'Education' : 'Formation'}</span>
               <div className="education-card">
-                <p><strong>{isEnglish ? 'Cybersecurity Engineering · Ongoing training' : 'Ingénieur en cybersécurité · Formation en cours'}</strong><span>IBAM</span></p>
+                <p><strong>{isEnglish ? 'Cybersecurity Engineering student' : 'Ingénieur en formation en cybersécurité'}</strong><span>{isEnglish ? 'IBAM · Ongoing' : 'IBAM · En cours'}</span></p>
                 <p><strong>{isEnglish ? 'Computer Science & Entrepreneurship' : 'Informatique & entrepreneuriat'}</strong><span>Burkina Institute of Technology · 2022—2025</span></p>
                 <p><strong>{isEnglish ? 'Baccalaureate · Mathematics & Biology' : 'Baccalauréat · Mathématiques & biologie'}</strong><span>Lycée Saint Justin · 2019—2022</span></p>
               </div>
