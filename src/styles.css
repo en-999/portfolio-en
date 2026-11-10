@@ -50,7 +50,7 @@ img, svg { display: block; max-width: 100%; }
 .brand { align-items: center; display: flex; font-size: 1.05rem; font-weight: 800; gap: 8px; letter-spacing: -.06em; }
 .brand span { background: var(--accent); border-radius: 50%; height: 7px; width: 7px; }
 nav { align-items: center; display: flex; gap: 28px; }
-nav a, .menu-toggle, .theme-toggle, .eyebrow, .section-number, .project-type, .site-footer, .stat-label, .hero-photo-index {
+nav a, .menu-toggle, .theme-toggle, .eyebrow, .section-number, .project-type, .site-footer, .hero-photo-index {
   font-family: 'Space Mono', monospace;
   font-size: .66rem;
   letter-spacing: .06em;
@@ -156,7 +156,7 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .about-section { background: linear-gradient(120deg, var(--inverse), color-mix(in srgb, var(--inverse) 78%, var(--accent))); color: var(--bg); max-width: none; }
 .about-section .section-heading { margin-left: auto; margin-right: auto; max-width: 1216px; }
 .about-section .section-line { background: rgba(255,255,255,.2); }
-.about-grid, .stats { margin-left: auto; margin-right: auto; max-width: 1216px; }
+.about-grid { margin-left: auto; margin-right: auto; max-width: 1216px; }
 .about-grid { display: grid; gap: 10vw; grid-template-columns: 1fr 1fr; }
 .about-lead { color: var(--accent); font-size: clamp(2.2rem, 4.8vw, 5rem); font-weight: 700; letter-spacing: -.1em; line-height: .98; margin: 0; }
 .about-copy { align-self: end; max-width: 440px; }
@@ -188,9 +188,6 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
 .certification-list { display: grid; gap: 14px; margin-top: 20px; }
 .location-title { margin-top: 32px; }
 .location-value { color: var(--bg); margin-top: 8px; }
-.stats { border-top: 1px solid rgba(255,255,255,.2); display: flex; gap: 10vw; margin-top: 70px; padding-top: 24px; }
-.stat strong { color: var(--accent); display: block; font-size: 2.8rem; letter-spacing: -.1em; }
-.stat-label { color: var(--muted); display: block; margin-top: 5px; }
 
 .contact-section { background: linear-gradient(135deg, transparent 0%, color-mix(in srgb, var(--accent-soft) 45%, transparent) 100%); margin: 0 auto; max-width: 1280px; padding: 140px 32px; }
 .contact-section h2 { font-size: clamp(3.7rem, 8vw, 8.5rem); font-weight: 800; letter-spacing: -.12em; line-height: .88; margin: 52px 0 70px; max-width: 1000px; }
@@ -271,8 +268,6 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
   .about-lead { font-size: 3rem; margin-bottom: 55px; }
   .about-more { grid-template-columns: 1fr; margin-top: 55px; }
   .about-more p { max-width: none; }
-  .stats { gap: 30px; margin-top: 58px; }
-  .stat strong { font-size: 2.1rem; }
   .contact-section { padding: 100px 6vw; }
   .contact-section h2 { font-size: 4rem; margin: 50px 0 65px; }
   .contact-layout { display: block; }

@@ -393,11 +393,6 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="stats">
-          <div className="stat"><strong>04</strong><span className="stat-label">{isEnglish ? 'experiences' : 'expériences'}</span></div>
-          <div className="stat"><strong>+8</strong><span className="stat-label">{isEnglish ? 'key projects' : 'projets clés'}</span></div>
-          <div className="stat"><strong>08</strong><span className="stat-label">{isEnglish ? 'technologies' : 'technologies'}</span></div>
-        </div>
         {showMoreAbout && (
           <div className="about-more">
             <div>
