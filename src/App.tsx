@@ -388,7 +388,7 @@ function App() {
             <p className="stack-note"><strong>Stack :</strong> Java/Spring Boot · Node.js · Python · React · Flutter · MySQL · PostgreSQL</p>
             <div className="about-actions">
               <button className="button about-more-toggle" type="button" onClick={() => setShowMoreAbout(!showMoreAbout)}>
-                {showMoreAbout ? (isEnglish ? 'Show less' : 'Réduire') : (isEnglish ? 'Learn more' : 'En savoir plus')} <span aria-hidden="true">→</span>
+                {showMoreAbout ? (isEnglish ? 'Show less' : 'Réduire') : (isEnglish ? 'Learn more' : 'En savoir plus')} <span aria-hidden="true">{showMoreAbout ? '←' : '→'}</span>
               </button>
             </div>
           </div>
