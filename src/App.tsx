@@ -237,22 +237,22 @@ function App() {
 
     const animateIntro = () => {
       if (!deleting && position < localizedIntro.length) {
-        position += 1
+        position = Math.min(position + 2, localizedIntro.length)
       } else if (deleting && position > 0) {
-        position -= 1
+        position = Math.max(position - 2, 0)
       } else if (!deleting) {
         deleting = true
-        timeoutId = window.setTimeout(animateIntro, 2400)
+        timeoutId = window.setTimeout(animateIntro, 10000)
         return
       } else {
         deleting = false
       }
 
       setTypedIntro(localizedIntro.slice(0, position))
-      timeoutId = window.setTimeout(animateIntro, deleting ? 32 : 48)
+      timeoutId = window.setTimeout(animateIntro, deleting ? 90 : 120)
     }
 
-    timeoutId = window.setTimeout(animateIntro, 2400)
+    timeoutId = window.setTimeout(animateIntro, 10000)
     return () => window.clearTimeout(timeoutId)
   }, [localizedIntro])
 
@@ -260,8 +260,15 @@ function App() {
     <main>
       <header className="site-header">
         <a className="brand" href="#top" onClick={closeMenu} aria-label="Retour en haut">
-          EN-999<span>.</span>
+          EN-999
         </a>
+        <div className="header-3d-scene" aria-hidden="true">
+          <div className="hero-orb">
+            <span className="orb-ring orb-ring-one" />
+            <span className="orb-ring orb-ring-two" />
+            <span className="orb-glow" />
+          </div>
+        </div>
         <button
           className="menu-toggle"
           type="button"
@@ -273,6 +280,7 @@ function App() {
           <span className="menu-icon" aria-hidden="true">{menuOpen ? '×' : '↘'}</span>
         </button>
         <nav id="main-nav" className={menuOpen ? 'nav-open' : ''}>
+          <a className={activeSection === 'top' ? 'active' : ''} href="#top" onClick={closeMenu}>{isEnglish ? 'Home' : 'Accueil'}</a>
           <a className={activeSection === 'a-propos' ? 'active' : ''} href="#a-propos" onClick={closeMenu}>{isEnglish ? 'About' : 'À propos'}</a>
           <a className={activeSection === 'projets' ? 'active' : ''} href="#projets" onClick={closeMenu}>{isEnglish ? 'Projects' : 'Projets'}</a>
           <a className={activeSection === 'contact' ? 'active' : ''} href="#contact" onClick={closeMenu}>Contact</a>
@@ -326,13 +334,6 @@ function App() {
         <div className="hero-photo-wrap">
           <div className="hero-photo-ring" aria-hidden="true" />
           <img className="hero-photo" src="/myself.jpeg" alt="Portrait de Marc Enzo Bitibaly" />
-        </div>
-        <div className="hero-3d-scene" aria-hidden="true">
-          <div className="hero-orb">
-            <span className="orb-ring orb-ring-one" />
-            <span className="orb-ring orb-ring-two" />
-            <span className="orb-glow" />
-          </div>
         </div>
       </section>
       <section className="projects-section section reveal" id="projets">
@@ -433,22 +434,16 @@ function App() {
       </section>
 
       <section className="contact-section section reveal" id="contact">
-        <p className="eyebrow">Let's connect</p>
+        <div className="section-heading contact-heading">
+          <span className="section-number">03</span>
+          <h2>Let's connect</h2>
+          <span className="section-line" />
+        </div>
         <h2>{isEnglish ? <>Let’s make something <em>meaningful.</em></> : <>Faisons quelque chose de <em>juste.</em></>}</h2>
         <div className="contact-layout">
           <div className="contact-intro">
             <p>{isEnglish ? 'A project, a question or simply want to connect? Write to me directly.' : 'Un projet, une question ou simplement envie d’échanger ? Écris-moi directement.'}</p>
-            <a className="contact-link" href="mailto:enzobitibaly@gmail.com">enzobitibaly@gmail.com</a>
-            <div className="contact-social-links">
-              <a className="social-link github-link" href="https://github.com/en-999" target="_blank" rel="noreferrer">
-                <GitHubIcon />
-                <span>GitHub</span>
-              </a>
-              <a className="social-link linkedin-link" href="https://www.linkedin.com/in/marc-enzo-bitibaly-a2bb22270/" target="_blank" rel="noreferrer">
-                <LinkedInIcon />
-                <span>LinkedIn</span>
-              </a>
-            </div>
+            <a className="contact-email" href="mailto:enzobitibaly@gmail.com">enzobitibaly@gmail.com</a>
           </div>
           <form className="contact-form" onSubmit={handleContactSubmit}>
             <label>
