@@ -101,7 +101,7 @@ function App() {
   const intro = "What's Up ? Moi c'est Enzo, passionné de tech et de sécurité... je te laisse découvrir mon portfolio."
   const [typedIntro, setTypedIntro] = useState(intro)
   const [language, setLanguage] = useState<'fr' | 'en'>(() => localStorage.getItem('portfolio-language') === 'en' ? 'en' : 'fr')
-  const [activeSection, setActiveSection] = useState('projets')
+  const [activeSection, setActiveSection] = useState('top')
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [formStatus, setFormStatus] = useState<'idle' | 'ready'>('idle')
   const [selectedProject, setSelectedProject] = useState<typeof projects[number] | null>(null)
@@ -187,7 +187,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const sections = Array.from(document.querySelectorAll<HTMLElement>('#projets, #a-propos, #contact'))
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('#top, #projets, #a-propos, #contact'))
     const observer = new IntersectionObserver((entries) => {
       const visibleSection = entries
         .filter((entry) => entry.isIntersecting)
@@ -199,6 +199,7 @@ function App() {
     }, { rootMargin: '-20% 0px -60% 0px', threshold: [0, .25, .5] })
 
     sections.forEach((section) => observer.observe(section))
+    setActiveSection(window.scrollY < 120 ? 'top' : 'projets')
     const handleScroll = () => setShowBackToTop(window.scrollY > 500)
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
@@ -280,10 +281,10 @@ function App() {
           <span className="menu-icon" aria-hidden="true">{menuOpen ? '×' : '↘'}</span>
         </button>
         <nav id="main-nav" className={menuOpen ? 'nav-open' : ''}>
-          <a className={activeSection === 'top' ? 'active' : ''} href="#top" onClick={closeMenu}>{isEnglish ? 'Home' : 'Accueil'}</a>
-          <a className={activeSection === 'a-propos' ? 'active' : ''} href="#a-propos" onClick={closeMenu}>{isEnglish ? 'About' : 'À propos'}</a>
-          <a className={activeSection === 'projets' ? 'active' : ''} href="#projets" onClick={closeMenu}>{isEnglish ? 'Projects' : 'Projets'}</a>
-          <a className={activeSection === 'contact' ? 'active' : ''} href="#contact" onClick={closeMenu}>Contact</a>
+          <a className={activeSection === 'top' ? 'active' : ''} href="#top" onClick={() => { setActiveSection('top'); closeMenu() }}>{isEnglish ? 'Home' : 'Accueil'}</a>
+          <a className={activeSection === 'a-propos' ? 'active' : ''} href="#a-propos" onClick={() => { setActiveSection('a-propos'); closeMenu() }}>{isEnglish ? 'About' : 'À propos'}</a>
+          <a className={activeSection === 'projets' ? 'active' : ''} href="#projets" onClick={() => { setActiveSection('projets'); closeMenu() }}>{isEnglish ? 'Projects' : 'Projets'}</a>
+          <a className={activeSection === 'contact' ? 'active' : ''} href="#contact" onClick={() => { setActiveSection('contact'); closeMenu() }}>Contact</a>
           <button
             className="theme-toggle"
             type="button"
