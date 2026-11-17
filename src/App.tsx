@@ -216,6 +216,7 @@ function App() {
 
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 500)
+      document.querySelector('.site-header')?.classList.toggle('is-scrolled', window.scrollY > 24)
 
       const headerOffset = 120
       let currentSection = 'top'
