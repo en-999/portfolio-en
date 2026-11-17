@@ -213,25 +213,29 @@ function App() {
 
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll<HTMLElement>('#top, #projets, #a-propos, #contact'))
-    const observer = new IntersectionObserver((entries) => {
-      const visibleSection = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0]
 
-      if (visibleSection) {
-        setActiveSection(visibleSection.target.id)
-      }
-    }, { rootMargin: '-20% 0px -60% 0px', threshold: [0, .25, .5] })
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 500)
 
-    sections.forEach((section) => observer.observe(section))
-    setActiveSection(window.scrollY < 120 ? 'top' : 'projets')
-    const handleScroll = () => setShowBackToTop(window.scrollY > 500)
+      const headerOffset = 120
+      let currentSection = 'top'
+
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top <= headerOffset) {
+          currentSection = section.id
+        }
+      })
+
+      setActiveSection(currentSection)
+    }
+
     window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll)
     handleScroll()
 
     return () => {
-      observer.disconnect()
       window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
     }
   }, [])
 
@@ -307,10 +311,10 @@ function App() {
           <span className="menu-icon" aria-hidden="true">{menuOpen ? '×' : '↘'}</span>
         </button>
         <nav id="main-nav" className={menuOpen ? 'nav-open' : ''}>
-          <a className={activeSection === 'top' ? 'active' : ''} href="#top" onClick={() => { setActiveSection('top'); closeMenu() }}>{isEnglish ? 'Home' : 'Accueil'}</a>
-          <a className={activeSection === 'a-propos' ? 'active' : ''} href="#a-propos" onClick={() => { setActiveSection('a-propos'); closeMenu() }}>{isEnglish ? 'About' : 'À propos'}</a>
-          <a className={activeSection === 'projets' ? 'active' : ''} href="#projets" onClick={() => { setActiveSection('projets'); closeMenu() }}>{isEnglish ? 'Projects' : 'Projets'}</a>
-          <a className={activeSection === 'contact' ? 'active' : ''} href="#contact" onClick={() => { setActiveSection('contact'); closeMenu() }}>Contact</a>
+          <a className={activeSection === 'top' ? 'active' : ''} aria-current={activeSection === 'top' ? 'page' : undefined} href="#top" onClick={() => { setActiveSection('top'); closeMenu() }}>{isEnglish ? 'Home' : 'Accueil'}</a>
+          <a className={activeSection === 'a-propos' ? 'active' : ''} aria-current={activeSection === 'a-propos' ? 'page' : undefined} href="#a-propos" onClick={() => { setActiveSection('a-propos'); closeMenu() }}>{isEnglish ? 'About' : 'À propos'}</a>
+          <a className={activeSection === 'projets' ? 'active' : ''} aria-current={activeSection === 'projets' ? 'page' : undefined} href="#projets" onClick={() => { setActiveSection('projets'); closeMenu() }}>{isEnglish ? 'Projects' : 'Projets'}</a>
+          <a className={activeSection === 'contact' ? 'active' : ''} aria-current={activeSection === 'contact' ? 'page' : undefined} href="#contact" onClick={() => { setActiveSection('contact'); closeMenu() }}>Contact</a>
           <button
             className="theme-toggle"
             type="button"
