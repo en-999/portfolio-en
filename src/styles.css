@@ -38,7 +38,8 @@ header { order: 0; }
 .contact-section { order: 4; }
 .site-footer { order: 5; }
 .project-modal-backdrop, .back-to-top { order: 6; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+#top, #projets, #a-propos, #contact { scroll-margin-top: 88px; }
 body { background: var(--bg); margin: 0; min-width: 320px; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
@@ -259,8 +260,8 @@ nav a.active::after { background: var(--accent); bottom: -8px; content: ''; heig
   .site-header { padding: 22px 6vw; }
   .header-3d-scene { margin-right: 0; }
   .menu-toggle { display: block; position: relative; z-index: 5; }
-  nav { background: var(--surface); flex-direction: column; gap: 25px; inset: 0; justify-content: center; padding: 20vw 12vw; position: fixed; transform: translateX(100%); transition: transform .3s ease; }
-  nav.nav-open { transform: translateX(0); }
+  nav { background: var(--surface); flex-direction: column; gap: 25px; inset: 0; justify-content: center; padding: 20vw 12vw; position: fixed; transform: translateX(100%); transition: transform .3s ease, visibility 0s linear .3s; visibility: hidden; }
+  nav.nav-open { transform: translateX(0); transition-delay: 0s; visibility: visible; }
   nav a { font-size: 1.2rem; }
   nav a.active::after { bottom: -8px; }
   .theme-toggle { font-size: .72rem; }

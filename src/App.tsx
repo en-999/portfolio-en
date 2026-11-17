@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from 'react'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
 
 const projects = [
   {
@@ -97,6 +97,7 @@ function DownloadIcon() {
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('portfolio-theme') === 'dark')
   const intro = "What's Up ? Moi c'est Enzo, passionné de tech et de sécurité... je te laisse découvrir mon portfolio."
   const [typedIntro, setTypedIntro] = useState(intro)
@@ -137,6 +138,30 @@ function App() {
   useEffect(() => {
     localStorage.setItem('portfolio-language', language)
   }, [language])
+
+  useEffect(() => {
+    if (!menuOpen) return
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false)
+        menuButtonRef.current?.focus()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    window.requestAnimationFrame(() => {
+      document.querySelector<HTMLAnchorElement>('#main-nav a')?.focus()
+    })
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [menuOpen])
 
   useEffect(() => {
     const revealElements = document.querySelectorAll<HTMLElement>('.reveal')
@@ -271,6 +296,7 @@ function App() {
           </div>
         </div>
         <button
+          ref={menuButtonRef}
           className="menu-toggle"
           type="button"
           aria-expanded={menuOpen}
@@ -334,7 +360,7 @@ function App() {
         </div>
         <div className="hero-photo-wrap">
           <div className="hero-photo-ring" aria-hidden="true" />
-          <img className="hero-photo" src="/myself.jpeg" alt="Portrait de Marc Enzo Bitibaly" />
+          <img className="hero-photo" src="/myself.jpeg" alt="Portrait de Marc Enzo Bitibaly" width="693" height="832" decoding="async" fetchPriority="high" />
         </div>
       </section>
       <section className="projects-section section reveal" id="projets">
