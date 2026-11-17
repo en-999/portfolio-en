@@ -215,7 +215,7 @@ function App() {
     const sections = Array.from(document.querySelectorAll<HTMLElement>('#top, #projets, #a-propos, #contact'))
 
     const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 500)
+      setShowBackToTop(window.scrollY > 700)
       document.querySelector('.site-header')?.classList.toggle('is-scrolled', window.scrollY > 24)
 
       const headerOffset = 120
@@ -509,7 +509,7 @@ function App() {
         <span>{isEnglish ? 'Ouagadougou · Burkina Faso' : 'Ouagadougou · Burkina Faso'}</span>
       </footer>
       {showBackToTop && (
-        <button className="back-to-top" type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Retour en haut">
+        <button className="back-to-top" type="button" onClick={() => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })} aria-label={isEnglish ? 'Back to top' : 'Retour en haut'}>
           ↑
         </button>
       )}
