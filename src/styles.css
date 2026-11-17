@@ -44,10 +44,11 @@ body { background: var(--bg); margin: 0; min-width: 320px; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 img, svg { display: block; max-width: 100%; }
-.reveal-ready .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+.reveal-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity .45s ease, transform .45s cubic-bezier(.2,.8,.2,1); }
 .reveal-ready .reveal.is-visible { opacity: 1; transform: translateY(0); }
-.reveal-ready .project-card:nth-child(2) { transition-delay: .08s; }
-.reveal-ready .project-card:nth-child(3) { transition-delay: .16s; }
+.reveal-ready .project-card:nth-child(2) { transition-delay: .05s; }
+.reveal-ready .project-card:nth-child(3) { transition-delay: .1s; }
+.reveal-ready .project-card:nth-child(4) { transition-delay: .15s; }
 
 .site-header { align-items: center; backdrop-filter: blur(14px); background: color-mix(in srgb, var(--bg) 92%, transparent); border-bottom: 1px solid var(--line); box-shadow: 0 0 0 transparent; display: flex; gap: 32px; justify-content: space-between; left: 0; margin: 0 auto; max-width: none; padding: 18px clamp(32px, 4vw, 64px); position: sticky; right: 0; top: 0; transition: padding .25s ease, box-shadow .25s ease, background .25s ease; width: 100%; z-index: 20; }
 .site-header.is-scrolled { background: color-mix(in srgb, var(--bg) 96%, transparent); box-shadow: 0 8px 24px color-mix(in srgb, var(--inverse) 10%, transparent); padding-bottom: 10px; padding-top: 10px; }
